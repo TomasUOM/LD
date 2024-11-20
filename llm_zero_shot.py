@@ -1,7 +1,7 @@
 import vllm
 import datasets
 from  huggingface_hub import login
-import nltk
+# import nltk
 import vllm.sampling_params
 
 # keeping my read token private
@@ -17,10 +17,10 @@ login(hf_token)
 #nltk.download('wordnet',quiet=True)
 
 # NLTK tools to help tokenize text
-stop_words = set(nltk.stopwords.words('english'))
-stemmer = nltk.stem.PorterStemmer()
-tokenizer = nltk.tokenize.word_tokenize()
-lemmatizer = nltk.WordNetLemmatizer()
+# stop_words = set(nltk.stopwords.words('english'))
+# stemmer = nltk.stem.PorterStemmer()
+# tokenizer = nltk.tokenize.word_tokenize()
+# lemmatizer = nltk.WordNetLemmatizer()
 
 # vllm llm function
 def choose_model(name):
@@ -38,24 +38,27 @@ def load_data(dataset_name):
     data = datasets.load_dataset(dataset_name, trust_remote_code = True)
     return data
 
-def prompt_model(): #tbd later, using format 
+def prompt_model(question, options): #tbd later, using format 
     # you are an expert in _____,  (essentially description of the AI's role: e.g.: "You are a helpful assistant")
-    system_prompt = "" 
+    system_prompt = "You are a helpful assistant." 
     # what the model is actually being tasked with: different for each question in benchmark
-    user_prompt = ""
+    user_prompt = f""
     # here I usually specify format for the model
     instructions = ""
     return system_prompt, user_prompt, instructions
 
-def generate(source_text, system_prompt, user_prompt, instructions, llm, nsampling = 1):
+def generate(source_text, question, system_prompt, user_prompt, instructions, llm, nsampling = 1):
     t = 0.0 if nsampling == 1 else 0.8 # 0.8 should be probably sampled on validatoin set first, but it's a start
     #source where it will look for an answer, the prompts, nsampling is for self consistency (statistical decoding technique)
-    request = f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n{system_prompt}<|eot_id|><|start_header_id|>user<|end_header_id|>\n{user_prompt}\n**Source:** \"{source_text}\"\n\n **Instructions:** \n{instructions} <|eot_id|><|start_header_id|>assistant<|end_header_id|>\n["
+    request = f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n{system_prompt}<|eot_id|><|start_header_id|>user<|end_header_id|>\n{user_prompt}\
+        \n**Source:** \"{source_text}\"\n\n **Instructions:** \n{instructions} <|eot_id|><|start_header_id|>assistant<|end_header_id|>\n["
     params = vllm.sampling_params(n = nsampling, temperature = t, seed = 42, max_tokens = 500) # 500 is max num of tokens in its answer
     # seed is random seed
     # may later include logprobs if of interest
     output = llm.generate(request, params, use_tqdm = True) # trying use_tqdm true for the first time, dunno how it will work
     return output[0].outputs[0].text #returns only the raw answer text
+
+# def predict(source, question, options):
 
 
 
@@ -66,7 +69,18 @@ def main():
     model = "meta-llama/Meta-Llama-3.1-8B-Instruct"
     dataset = "emozilla/quality"
 
-    
+    data = load_data(dataset)
+
+    data_train = data['train']
+    data_val = data['validation'][:999]
+    data_test = data['validation'][1000:]
+
+
+
+    # print(data_train[0])
+
 
 
     return 0
+
+main()
