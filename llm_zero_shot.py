@@ -6,7 +6,7 @@ import re
 
 # keeping my read token private
 with open("token.txt", 'r') as f:
-    hf_token = f.read()
+    hf_token = f.read() # request your own token, input here
 
 # provides access to llama3.1 through my token
 login(hf_token)
@@ -105,14 +105,14 @@ def precision(num_ans, target):
 # processing functions - is this necessary actually? idk
 
 def main():
-    model = "meta-llama/Meta-Llama-3.1-8B-Instruct"
-    dataset = "emozilla/quality"
+    model = "meta-llama/Meta-Llama-3.1-8B-Instruct" # Manan, Kasyap
+    dataset = "emozilla/quality" # Kasyap
     
 
     data = load_data(dataset)
 
     data_train = data['train']
-    data_val = data['validation'][:1000]
+    data_val = data['validation'][:1000] #anybody
     data_test = data['validation'][1000:]
 
     test = data_val
