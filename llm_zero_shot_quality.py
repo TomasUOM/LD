@@ -3,6 +3,8 @@ import datasets
 from  huggingface_hub import login
 # import nltk
 import re
+import random
+from collections import defaultdict
 
 # keeping my read token private
 with open("token.txt", 'r') as f:
@@ -101,8 +103,61 @@ def precision(num_ans, target):
         return 0
 
 
+def balance_dataset(data):
+    #Function to split validation in half and have equal num of hard in both
+    
+    s1_art, s1_q, s1_opt, s1_ans, s2_art, s2_q, s2_opt, s2_ans = [],[],[],[],[],[],[],[]
+    balance_hard = 0
+    balance_easy = 0
+    num_hard = 0
 
-# processing functions - is this necessary actually? idk
+
+    for i in range(len(data)):
+        d = data[i]['hard']
+        if d:
+            num_hard += 1
+            if balance_hard > 0:
+                # go left
+                s1_art.append(data[i]['article'])
+                s1_q.append(data[i]['question'])
+                s1_opt.append(data[i]['options'])
+                s1_ans.append(data[i]['answer'])
+                balance_hard -= 1
+            else:
+                #go right
+                s2_art.append(data[i]['article'])
+                s2_q.append(data[i]['question'])
+                s2_opt.append(data[i]['options'])
+                s2_ans.append(data[i]['answer'])
+                balance_hard += 1
+        else:
+            if balance_easy > 0:
+                # go left
+                s1_art.append(data[i]['article'])
+                s1_q.append(data[i]['question'])
+                s1_opt.append(data[i]['options'])
+                s1_ans.append(data[i]['answer'])
+                balance_easy -= 1
+            else:
+                #go right
+                s2_art.append(data[i]['article'])
+                s2_q.append(data[i]['question'])
+                s2_opt.append(data[i]['options'])
+                s2_ans.append(data[i]['answer'])
+                balance_easy += 1
+    print(num_hard)
+    print(f"this is length of s1: {len(s1_art)}")
+    print(f"this is length of s2: {len(s2_art)}")
+    print(f"this is balance hard: {balance_hard}")
+    print(f"this is balance easy: {balance_easy}")
+    split1 = [s1_art, s1_q, s1_opt, s1_ans]
+    split2 = [s2_art, s2_q, s2_opt, s2_ans]
+    return split1, split2
+
+
+
+
+
 
 def main():
     model = "meta-llama/Meta-Llama-3.1-8B-Instruct" # Manan, Kasyap
@@ -112,26 +167,28 @@ def main():
     data = load_data(dataset)
 
     data_train = data['train']
-    data_val = data['validation'][:1000] #anybody
-    data_test = data['validation'][1000:]
+    data_val = data['validation']
+    val1, val2 = balance_dataset(data_val) #slitghtly off (1042 vs 1044) due to odd easy and hard
 
-    test = data_val
-    source = test['article']
-    question = test['question']
-    options = test['options']
-    target = test['answer']
+  
+    test = val2
+    source = test[0]
+    question = test[1]
+    options = test[2]
+    target = test[3]
 
+ 
     llm=choose_model(model)
     
     ans_full, num_ans = predict(source, question, options, llm)
-    print(ans_full[:10])
-    print(num_ans)
-    print(target)
+    # print(ans_full[:10])
+    # print(num_ans)
+    # print(target)
     precision(num_ans, target)
     
 
 
-    # print(data_train[0])
+    
 
 
 
