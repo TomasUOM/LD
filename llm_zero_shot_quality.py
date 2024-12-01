@@ -160,10 +160,8 @@ def balance_dataset(data):
 
 
 def main():
-    model = "meta-llama/Meta-Llama-3.1-8B-Instruct" # Manan, Kasyap
-    dataset = "emozilla/quality" # Kasyap
-    
-
+    model = "meta-llama/Llama-3.2-1B-Instruct" 
+    dataset = "emozilla/quality" 
     data = load_data(dataset)
 
     data_train = data['train']
@@ -177,13 +175,8 @@ def main():
     options = test[2]
     target = test[3]
 
- 
     llm=choose_model(model)
-    
     ans_full, num_ans = predict(source, question, options, llm)
-    # print(ans_full[:10])
-    # print(num_ans)
-    # print(target)
     precision(num_ans, target)
     
 

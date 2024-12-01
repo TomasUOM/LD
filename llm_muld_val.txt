@@ -1,0 +1,79 @@
+2024-11-30 15:31:02.032237: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1733002262.052456 3923268 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1733002262.058775 3923268 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-11-30 15:31:02.080043: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+INFO 11-30 15:31:11 config.py:350] This model supports multiple tasks: {'embedding', 'generate'}. Defaulting to 'generate'.
+WARNING 11-30 15:31:11 arg_utils.py:1013] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 11-30 15:31:11 config.py:1136] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 11-30 15:31:11 llm_engine.py:249] Initializing an LLM engine (v0.6.4.post1) with config: model='meta-llama/Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=45000, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Llama-3.1-8B-Instruct, num_scheduler_steps=1, chunked_prefill_enabled=True multi_step_stream_outputs=True, enable_prefix_caching=False, use_async_output_proc=True, use_cached_outputs=False, chat_template_text_format=string, mm_processor_kwargs=None, pooler_config=None)
+INFO 11-30 15:31:12 selector.py:135] Using Flash Attention backend.
+INFO 11-30 15:31:12 model_runner.py:1072] Starting to load model meta-llama/Llama-3.1-8B-Instruct...
+INFO 11-30 15:31:13 weight_utils.py:243] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:02,  1.33it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.78it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:01<00:00,  1.49it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.25it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.34it/s]
+
+INFO 11-30 15:31:16 model_runner.py:1077] Loading model weights took 14.9888 GB
+INFO 11-30 15:31:17 worker.py:232] Memory profiling results: total_gpu_memory=23.67GiB initial_memory_usage=15.24GiB peak_torch_memory=16.16GiB memory_usage_post_profile=15.28GiB non_torch_memory=0.28GiB kv_cache_size=6.04GiB gpu_memory_utilization=0.95
+INFO 11-30 15:31:17 gpu_executor.py:113] # GPU blocks: 3094, # CPU blocks: 2048
+INFO 11-30 15:31:17 gpu_executor.py:117] Maximum concurrency for 45000 tokens per request: 1.10x
+INFO 11-30 15:31:20 model_runner.py:1400] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 11-30 15:31:20 model_runner.py:1404] If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 11-30 15:31:37 model_runner.py:1518] Graph capturing finished in 17 secs, took 0.26 GiB
+3
+Question 1 in progress...
+this is length of string_tokenized: 22996
+this is chonk size: 40000
+this is the division: 0.5749
+This is the floor of div: 0
+Here are the last 100 words of each: ['I', 'think', "we'll", 'take', 'out', 'chances', 'down', 'the', 'road.', 'Barnard', 'shakes', 'his', 'head', 'as', 'the', 'two', 'fools', 'climb', 'into', 'their', 'hearse', 'and', 'drive', 'off.', 'EXT.', 'HIGHWAY', '-', 'DAY', 'As', 'the', 'hearse', 'drives', 'down', 'the', 'road,', 'we', 'hear', 'V.O.:', '119.', 'HARRY', '(v.o.)', 'Since', "we're", 'finished', 'elbow-rubbing,', 'what', 'next,', 'lloyd?', 'LLOYD', '(v.o.)', 'I', 'say', 'we', 'head', 'due', 'south', 'and', 'try', 'a', 'little', 'nose-rubbing', 'with', 'some', 'of', 'them', 'slinky', 'eskimo', 'babes.', 'HARRY', '(v.o.)', 'Now', "you're", 'talking', 'my', 'language.', 'You', 'know', 'I', 'got', 'a', 'weakness', 'for', 'blondes.', 'As', 'they', 'head', 'toward', 'their', 'next', 'adventure,', 'the', 'CAMERA', 'PULLS', 'UP,', 'UP,', 'UP...', 'END', 'CREDITS', 'THE', 'END']
+1
+Question 2 in progress...
+this is length of string_tokenized: 22996
+this is chonk size: 40000
+this is the division: 0.5749
+This is the floor of div: 0
+Here are the last 100 words of each: ['I', 'think', "we'll", 'take', 'out', 'chances', 'down', 'the', 'road.', 'Barnard', 'shakes', 'his', 'head', 'as', 'the', 'two', 'fools', 'climb', 'into', 'their', 'hearse', 'and', 'drive', 'off.', 'EXT.', 'HIGHWAY', '-', 'DAY', 'As', 'the', 'hearse', 'drives', 'down', 'the', 'road,', 'we', 'hear', 'V.O.:', '119.', 'HARRY', '(v.o.)', 'Since', "we're", 'finished', 'elbow-rubbing,', 'what', 'next,', 'lloyd?', 'LLOYD', '(v.o.)', 'I', 'say', 'we', 'head', 'due', 'south', 'and', 'try', 'a', 'little', 'nose-rubbing', 'with', 'some', 'of', 'them', 'slinky', 'eskimo', 'babes.', 'HARRY', '(v.o.)', 'Now', "you're", 'talking', 'my', 'language.', 'You', 'know', 'I', 'got', 'a', 'weakness', 'for', 'blondes.', 'As', 'they', 'head', 'toward', 'their', 'next', 'adventure,', 'the', 'CAMERA', 'PULLS', 'UP,', 'UP,', 'UP...', 'END', 'CREDITS', 'THE', 'END']
+1
+Question 3 in progress...
+this is length of string_tokenized: 22996
+this is chonk size: 40000
+this is the division: 0.5749
+This is the floor of div: 0
+Here are the last 100 words of each: ['I', 'think', "we'll", 'take', 'out', 'chances', 'down', 'the', 'road.', 'Barnard', 'shakes', 'his', 'head', 'as', 'the', 'two', 'fools', 'climb', 'into', 'their', 'hearse', 'and', 'drive', 'off.', 'EXT.', 'HIGHWAY', '-', 'DAY', 'As', 'the', 'hearse', 'drives', 'down', 'the', 'road,', 'we', 'hear', 'V.O.:', '119.', 'HARRY', '(v.o.)', 'Since', "we're", 'finished', 'elbow-rubbing,', 'what', 'next,', 'lloyd?', 'LLOYD', '(v.o.)', 'I', 'say', 'we', 'head', 'due', 'south', 'and', 'try', 'a', 'little', 'nose-rubbing', 'with', 'some', 'of', 'them', 'slinky', 'eskimo', 'babes.', 'HARRY', '(v.o.)', 'Now', "you're", 'talking', 'my', 'language.', 'You', 'know', 'I', 'got', 'a', 'weakness', 'for', 'blondes.', 'As', 'they', 'head', 'toward', 'their', 'next', 'adventure,', 'the', 'CAMERA', 'PULLS', 'UP,', 'UP,', 'UP...', 'END', 'CREDITS', 'THE', 'END']
+1
+Extraction failed 0 times!
+['Villain/Antagonist']
+villain
+['villain']
+
+
+
+
+
+
+['Hero']
+hero
+['hero']
+
+
+
+
+
+
+['Villain/Antagonist']
+hero
+['hero']
+
+
+
+
+
+
+0.6666666666666666
+[rank0]:[W1130 15:32:27.221975573 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())

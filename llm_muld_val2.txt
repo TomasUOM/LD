@@ -1,0 +1,397 @@
+2024-11-30 17:54:54.908025: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1733010894.928239 4059370 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1733010894.934532 4059370 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-11-30 17:54:54.955782: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+INFO 11-30 17:55:04 config.py:350] This model supports multiple tasks: {'embedding', 'generate'}. Defaulting to 'generate'.
+WARNING 11-30 17:55:04 arg_utils.py:1013] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 11-30 17:55:04 config.py:1136] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 11-30 17:55:04 llm_engine.py:249] Initializing an LLM engine (v0.6.4.post1) with config: model='meta-llama/Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=45000, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Llama-3.1-8B-Instruct, num_scheduler_steps=1, chunked_prefill_enabled=True multi_step_stream_outputs=True, enable_prefix_caching=False, use_async_output_proc=True, use_cached_outputs=False, chat_template_text_format=string, mm_processor_kwargs=None, pooler_config=None)
+INFO 11-30 17:55:05 selector.py:135] Using Flash Attention backend.
+INFO 11-30 17:55:05 model_runner.py:1072] Starting to load model meta-llama/Llama-3.1-8B-Instruct...
+INFO 11-30 17:55:06 weight_utils.py:243] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:02,  1.34it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.80it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:01<00:00,  1.51it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.27it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.36it/s]
+
+INFO 11-30 17:55:09 model_runner.py:1077] Loading model weights took 14.9888 GB
+INFO 11-30 17:55:09 worker.py:232] Memory profiling results: total_gpu_memory=23.67GiB initial_memory_usage=15.24GiB peak_torch_memory=16.16GiB memory_usage_post_profile=15.28GiB non_torch_memory=0.28GiB kv_cache_size=6.04GiB gpu_memory_utilization=0.95
+INFO 11-30 17:55:10 gpu_executor.py:113] # GPU blocks: 3094, # CPU blocks: 2048
+INFO 11-30 17:55:10 gpu_executor.py:117] Maximum concurrency for 45000 tokens per request: 1.10x
+INFO 11-30 17:55:13 model_runner.py:1400] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 11-30 17:55:13 model_runner.py:1404] If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 11-30 17:55:30 model_runner.py:1518] Graph capturing finished in 17 secs, took 0.26 GiB
+166
+Question 1 in progress...
+this is length of string_tokenized: 22996
+this is chonk size: 40000
+this is the division: 0.5749
+This is the floor of div: 0
+Here are the last 100 words of each: ['I', 'think', "we'll", 'take', 'out', 'chances', 'down', 'the', 'road.', 'Barnard', 'shakes', 'his', 'head', 'as', 'the', 'two', 'fools', 'climb', 'into', 'their', 'hearse', 'and', 'drive', 'off.', 'EXT.', 'HIGHWAY', '-', 'DAY', 'As', 'the', 'hearse', 'drives', 'down', 'the', 'road,', 'we', 'hear', 'V.O.:', '119.', 'HARRY', '(v.o.)', 'Since', "we're", 'finished', 'elbow-rubbing,', 'what', 'next,', 'lloyd?', 'LLOYD', '(v.o.)', 'I', 'say', 'we', 'head', 'due', 'south', 'and', 'try', 'a', 'little', 'nose-rubbing', 'with', 'some', 'of', 'them', 'slinky', 'eskimo', 'babes.', 'HARRY', '(v.o.)', 'Now', "you're", 'talking', 'my', 'language.', 'You', 'know', 'I', 'got', 'a', 'weakness', 'for', 'blondes.', 'As', 'they', 'head', 'toward', 'their', 'next', 'adventure,', 'the', 'CAMERA', 'PULLS', 'UP,', 'UP,', 'UP...', 'END', 'CREDITS', 'THE', 'END']
+1
+Question 2 in progress...
+this is length of string_tokenized: 22996
+this is chonk size: 40000
+this is the division: 0.5749
+This is the floor of div: 0
+Here are the last 100 words of each: ['I', 'think', "we'll", 'take', 'out', 'chances', 'down', 'the', 'road.', 'Barnard', 'shakes', 'his', 'head', 'as', 'the', 'two', 'fools', 'climb', 'into', 'their', 'hearse', 'and', 'drive', 'off.', 'EXT.', 'HIGHWAY', '-', 'DAY', 'As', 'the', 'hearse', 'drives', 'down', 'the', 'road,', 'we', 'hear', 'V.O.:', '119.', 'HARRY', '(v.o.)', 'Since', "we're", 'finished', 'elbow-rubbing,', 'what', 'next,', 'lloyd?', 'LLOYD', '(v.o.)', 'I', 'say', 'we', 'head', 'due', 'south', 'and', 'try', 'a', 'little', 'nose-rubbing', 'with', 'some', 'of', 'them', 'slinky', 'eskimo', 'babes.', 'HARRY', '(v.o.)', 'Now', "you're", 'talking', 'my', 'language.', 'You', 'know', 'I', 'got', 'a', 'weakness', 'for', 'blondes.', 'As', 'they', 'head', 'toward', 'their', 'next', 'adventure,', 'the', 'CAMERA', 'PULLS', 'UP,', 'UP,', 'UP...', 'END', 'CREDITS', 'THE', 'END']
+1
+Question 3 in progress...
+this is length of string_tokenized: 22996
+this is chonk size: 40000
+this is the division: 0.5749
+This is the floor of div: 0
+Here are the last 100 words of each: ['I', 'think', "we'll", 'take', 'out', 'chances', 'down', 'the', 'road.', 'Barnard', 'shakes', 'his', 'head', 'as', 'the', 'two', 'fools', 'climb', 'into', 'their', 'hearse', 'and', 'drive', 'off.', 'EXT.', 'HIGHWAY', '-', 'DAY', 'As', 'the', 'hearse', 'drives', 'down', 'the', 'road,', 'we', 'hear', 'V.O.:', '119.', 'HARRY', '(v.o.)', 'Since', "we're", 'finished', 'elbow-rubbing,', 'what', 'next,', 'lloyd?', 'LLOYD', '(v.o.)', 'I', 'say', 'we', 'head', 'due', 'south', 'and', 'try', 'a', 'little', 'nose-rubbing', 'with', 'some', 'of', 'them', 'slinky', 'eskimo', 'babes.', 'HARRY', '(v.o.)', 'Now', "you're", 'talking', 'my', 'language.', 'You', 'know', 'I', 'got', 'a', 'weakness', 'for', 'blondes.', 'As', 'they', 'head', 'toward', 'their', 'next', 'adventure,', 'the', 'CAMERA', 'PULLS', 'UP,', 'UP,', 'UP...', 'END', 'CREDITS', 'THE', 'END']
+1
+Question 4 in progress...
+this is length of string_tokenized: 27070
+this is chonk size: 40000
+this is the division: 0.67675
+This is the floor of div: 0
+Here are the last 100 words of each: ['the', 'game', 'on', 'the', 'other', 'side.', 'A', 'few', 'kids', 'on', 'the', 'other', 'side', 'of', 'the', 'fence', 'shout', 'their', 'approval', 'of', 'a', 'great', 'little', 'throw.', '132.', 'Jerry', 'and', 'Dorothy', 'stop,', 'looking', 'at', 'Ray', 'who', 'has', 'just', 'shown', 'shocking', 'natural', 'ability.', 'They', 'are', 'quiet', 'for', 'a', 'moment,', 'turning', 'slowly', 'to', 'look', 'at', 'each', 'other.', 'And', 'then,', 'not', 'ready', 'to', 'deal', 'with', 'it,', 'not', 'even', 'close', 'to', 'ready', 'to', 'deal', 'with', 'it,', 'they', 'say', 'quickly', 'to', 'the', 'boy:', 'JERRY', 'DOROTHY', 'Come', 'on,', 'Ray.', 'Ray,', "let's", 'go.', 'Happily', 'Ray', 'joins', 'them', 'as', 'they', 'walk', 'to', 'the', 'car.', 'A', 'family.', 'Music.', 'FADE', 'OUT', 'THE', 'END']
+1
+Question 5 in progress...
+this is length of string_tokenized: 27070
+this is chonk size: 40000
+this is the division: 0.67675
+This is the floor of div: 0
+Here are the last 100 words of each: ['the', 'game', 'on', 'the', 'other', 'side.', 'A', 'few', 'kids', 'on', 'the', 'other', 'side', 'of', 'the', 'fence', 'shout', 'their', 'approval', 'of', 'a', 'great', 'little', 'throw.', '132.', 'Jerry', 'and', 'Dorothy', 'stop,', 'looking', 'at', 'Ray', 'who', 'has', 'just', 'shown', 'shocking', 'natural', 'ability.', 'They', 'are', 'quiet', 'for', 'a', 'moment,', 'turning', 'slowly', 'to', 'look', 'at', 'each', 'other.', 'And', 'then,', 'not', 'ready', 'to', 'deal', 'with', 'it,', 'not', 'even', 'close', 'to', 'ready', 'to', 'deal', 'with', 'it,', 'they', 'say', 'quickly', 'to', 'the', 'boy:', 'JERRY', 'DOROTHY', 'Come', 'on,', 'Ray.', 'Ray,', "let's", 'go.', 'Happily', 'Ray', 'joins', 'them', 'as', 'they', 'walk', 'to', 'the', 'car.', 'A', 'family.', 'Music.', 'FADE', 'OUT', 'THE', 'END']
+1
+Question 6 in progress...
+this is length of string_tokenized: 20806
+this is chonk size: 40000
+this is the division: 0.52015
+This is the floor of div: 0
+Here are the last 100 words of each: ['her', 'upturned', 'face.', 'TESS', 'What', 'took', 'you', 'so', 'long?', 'Sam', 'just', 'smiles', 'back', 'at', 'her.', 'She', 'hands', 'him', 'a', 'bottle', 'of', 'wine', 'and', 'a', 'corkscrew.', 'CAMERA', 'PANS', 'UPWARD', '--', 'not', 'a', 'cloud', 'in', 'sight', '--', 'but', 'we', 'are', 'just', 'able', 'to', 'pick', 'out', 'the', 'chalky', 'outline', 'of', 'the', 'MOON,', 'resembling', 'a', 'white', 'thumb', 'print', 'in', 'the', 'blue', 'sky.', '96.', 'HOLD', 'THIS', 'shot', 'of', 'the', 'Moon', 'for', 'a', 'few', 'seconds', 'before', 'we', 'FADE', 'TO', 'BLACK.', '169', 'INT.', 'COMMS', 'ROOM', '169', 'On', 'the', 'Comms', 'Unit', 'monitor', 'there', 'is', 'a', 'BLAST', 'of', 'STATIC,', 'followed', 'by', 'a', 'FLASHING', 'MESSAGE:', '"LIVE', 'FEED', 'AVAILABLE."', 'THE', 'END']
+1
+Question 7 in progress...
+this is length of string_tokenized: 22438
+this is chonk size: 40000
+this is the division: 0.56095
+This is the floor of div: 0
+Here are the last 100 words of each: ['as', 'Lilly', 'repacks', 'the', 'money', 'into', 'the', 'case,', 'wiping', 'the', 'blood', 'from', 'some', 'wads', 'onto', 'the', 'carpet.', 'Finishing,', 'she', 'closes', 'the', 'case,', 'then', 'remains', 'on', 'her', 'knees,', 'bending', 'over', 'the', 'case.', 'She', 'WEEPS', 'grindingly.', 'WIDE', 'SHOT,', 'entrance', 'door', 'in', 'b.g.', "Lilly's", 'weeping', 'subsides.', 'She', 'gets', 'wearily', 'to', 'her', 'feet,', 'and', 'leaves', 'the', 'room.', 'CAMERA', 'HOLDS.', 'SOUND', 'of', 'water', 'running', 'in', 'sink.', 'SOUND', 'STOPS.', 'Lilly', 'reappears.', 'She', 'does', 'not', 'again', 'look', 'toward', 'Roy.', 'She', 'picks', 'up', 'the', 'attache', 'case,', 'crosses', 'to', 'the', 'door,', 'opens', 'it,', 'steps', 'across', 'the', 'threshold,', 'reaches', 'back', 'to', 'switch', 'off', 'the', 'light.', 'GO', 'TO', 'BLACK.', 'THE', 'END']
+1
+Question 8 in progress...
+this is length of string_tokenized: 22438
+this is chonk size: 40000
+this is the division: 0.56095
+This is the floor of div: 0
+Here are the last 100 words of each: ['as', 'Lilly', 'repacks', 'the', 'money', 'into', 'the', 'case,', 'wiping', 'the', 'blood', 'from', 'some', 'wads', 'onto', 'the', 'carpet.', 'Finishing,', 'she', 'closes', 'the', 'case,', 'then', 'remains', 'on', 'her', 'knees,', 'bending', 'over', 'the', 'case.', 'She', 'WEEPS', 'grindingly.', 'WIDE', 'SHOT,', 'entrance', 'door', 'in', 'b.g.', "Lilly's", 'weeping', 'subsides.', 'She', 'gets', 'wearily', 'to', 'her', 'feet,', 'and', 'leaves', 'the', 'room.', 'CAMERA', 'HOLDS.', 'SOUND', 'of', 'water', 'running', 'in', 'sink.', 'SOUND', 'STOPS.', 'Lilly', 'reappears.', 'She', 'does', 'not', 'again', 'look', 'toward', 'Roy.', 'She', 'picks', 'up', 'the', 'attache', 'case,', 'crosses', 'to', 'the', 'door,', 'opens', 'it,', 'steps', 'across', 'the', 'threshold,', 'reaches', 'back', 'to', 'switch', 'off', 'the', 'light.', 'GO', 'TO', 'BLACK.', 'THE', 'END']
+1
+Question 9 in progress...
+this is length of string_tokenized: 22438
+this is chonk size: 40000
+this is the division: 0.56095
+This is the floor of div: 0
+Here are the last 100 words of each: ['as', 'Lilly', 'repacks', 'the', 'money', 'into', 'the', 'case,', 'wiping', 'the', 'blood', 'from', 'some', 'wads', 'onto', 'the', 'carpet.', 'Finishing,', 'she', 'closes', 'the', 'case,', 'then', 'remains', 'on', 'her', 'knees,', 'bending', 'over', 'the', 'case.', 'She', 'WEEPS', 'grindingly.', 'WIDE', 'SHOT,', 'entrance', 'door', 'in', 'b.g.', "Lilly's", 'weeping', 'subsides.', 'She', 'gets', 'wearily', 'to', 'her', 'feet,', 'and', 'leaves', 'the', 'room.', 'CAMERA', 'HOLDS.', 'SOUND', 'of', 'water', 'running', 'in', 'sink.', 'SOUND', 'STOPS.', 'Lilly', 'reappears.', 'She', 'does', 'not', 'again', 'look', 'toward', 'Roy.', 'She', 'picks', 'up', 'the', 'attache', 'case,', 'crosses', 'to', 'the', 'door,', 'opens', 'it,', 'steps', 'across', 'the', 'threshold,', 'reaches', 'back', 'to', 'switch', 'off', 'the', 'light.', 'GO', 'TO', 'BLACK.', 'THE', 'END']
+1
+Question 10 in progress...
+this is length of string_tokenized: 26890
+this is chonk size: 40000
+this is the division: 0.67225
+This is the floor of div: 0
+Here are the last 100 words of each: ['brother', 'and', 'sister', 'once,', 'and', 'they', 'were', 'loving', 'me.', '<b>', 'EXT.', 'BEACH', '-', 'DUSK', '</b>', 'Dozens', 'of', 'children', 'run', 'into', 'the', 'water,', 'screaming,', 'writhing,', 'passing', 'around', 'a', 'ball', 'in', 'large', 'circles.', 'From', 'a', 'distance,', 'Agu', 'watches', 'them', 'play,', 'a', 'part', 'of', 'him', 'yearning', 'to', 'join', 'them,', 'a', 'part', 'of', 'him', 'feeling', 'like', 'that', 'version', 'of', 'himself', 'is', 'long', 'gone.', 'But,', 'surprising', 'even', 'to', 'him,', 'he', 'cannot', 'help', 'but', 'step', 'forward,', 'at', 'first', 'walking,', 'then', 'running', 'out', 'towards', 'the', 'water,', 'splashing', 'into', 'the', 'frothy', 'waves', 'to', 'join', 'them.', 'We', 'last', 'glimpse', 'him', 'as', 'he', 'dives', 'underwater.', '<b>', 'CUT', 'TO', 'BLACK:', '</b>']
+1
+Question 11 in progress...
+this is length of string_tokenized: 26890
+this is chonk size: 40000
+this is the division: 0.67225
+This is the floor of div: 0
+Here are the last 100 words of each: ['brother', 'and', 'sister', 'once,', 'and', 'they', 'were', 'loving', 'me.', '<b>', 'EXT.', 'BEACH', '-', 'DUSK', '</b>', 'Dozens', 'of', 'children', 'run', 'into', 'the', 'water,', 'screaming,', 'writhing,', 'passing', 'around', 'a', 'ball', 'in', 'large', 'circles.', 'From', 'a', 'distance,', 'Agu', 'watches', 'them', 'play,', 'a', 'part', 'of', 'him', 'yearning', 'to', 'join', 'them,', 'a', 'part', 'of', 'him', 'feeling', 'like', 'that', 'version', 'of', 'himself', 'is', 'long', 'gone.', 'But,', 'surprising', 'even', 'to', 'him,', 'he', 'cannot', 'help', 'but', 'step', 'forward,', 'at', 'first', 'walking,', 'then', 'running', 'out', 'towards', 'the', 'water,', 'splashing', 'into', 'the', 'frothy', 'waves', 'to', 'join', 'them.', 'We', 'last', 'glimpse', 'him', 'as', 'he', 'dives', 'underwater.', '<b>', 'CUT', 'TO', 'BLACK:', '</b>']
+1
+Question 12 in progress...
+this is length of string_tokenized: 26890
+this is chonk size: 40000
+this is the division: 0.67225
+This is the floor of div: 0
+Here are the last 100 words of each: ['brother', 'and', 'sister', 'once,', 'and', 'they', 'were', 'loving', 'me.', '<b>', 'EXT.', 'BEACH', '-', 'DUSK', '</b>', 'Dozens', 'of', 'children', 'run', 'into', 'the', 'water,', 'screaming,', 'writhing,', 'passing', 'around', 'a', 'ball', 'in', 'large', 'circles.', 'From', 'a', 'distance,', 'Agu', 'watches', 'them', 'play,', 'a', 'part', 'of', 'him', 'yearning', 'to', 'join', 'them,', 'a', 'part', 'of', 'him', 'feeling', 'like', 'that', 'version', 'of', 'himself', 'is', 'long', 'gone.', 'But,', 'surprising', 'even', 'to', 'him,', 'he', 'cannot', 'help', 'but', 'step', 'forward,', 'at', 'first', 'walking,', 'then', 'running', 'out', 'towards', 'the', 'water,', 'splashing', 'into', 'the', 'frothy', 'waves', 'to', 'join', 'them.', 'We', 'last', 'glimpse', 'him', 'as', 'he', 'dives', 'underwater.', '<b>', 'CUT', 'TO', 'BLACK:', '</b>']
+1
+Question 13 in progress...
+this is length of string_tokenized: 23609
+this is chonk size: 40000
+this is the division: 0.590225
+This is the floor of div: 0
+Here are the last 100 words of each: ['DUSK', 'A106', '</b>', 'Jennifer', 'turns', 'to', 'the', 'dilapidated', 'shack.', 'in', 'the', 'distance', 'she', 'sees', 'the', 'officers', 'escorting', 'a', 'handcuffed', 'Matthew', 'out.', 'SLOW', 'MOTION:', 'As', 'Matthew', 'is', 'wildly', 'kicking', 'and', 'screaming', 'in', 'a', 'furious', 'panic.', 'The', 'Officers', 'try', 'to', 'subdue', 'him.', 'Jennifer', 'just', 'stares,', 'devoid', 'of', 'emotion.', 'Then,', 'after', 'a', 'minute,', 'she', 'turns', 'and', 'continues', 'to', 'walk', 'off', 'into', 'the', 'woods.', 'ON', 'JENNIFER:', 'As', 'she', 'continues', 'to', 'walk', 'away', '-', 'and', 'then', '-', 'as', 'she', 'continue', 'closer', 'to', 'CAMERA', '-', 'the', 'smallest', 'hint', 'of', 'a', 'wry', 'smile', '-', 'nearly', 'imperceptible,', 'but', "it's", 'there,', 'creeps', 'across', 'her', 'face.', '<b>', 'SMASH', 'OUT:', '</b>']
+1
+Question 14 in progress...
+this is length of string_tokenized: 23609
+this is chonk size: 40000
+this is the division: 0.590225
+This is the floor of div: 0
+Here are the last 100 words of each: ['DUSK', 'A106', '</b>', 'Jennifer', 'turns', 'to', 'the', 'dilapidated', 'shack.', 'in', 'the', 'distance', 'she', 'sees', 'the', 'officers', 'escorting', 'a', 'handcuffed', 'Matthew', 'out.', 'SLOW', 'MOTION:', 'As', 'Matthew', 'is', 'wildly', 'kicking', 'and', 'screaming', 'in', 'a', 'furious', 'panic.', 'The', 'Officers', 'try', 'to', 'subdue', 'him.', 'Jennifer', 'just', 'stares,', 'devoid', 'of', 'emotion.', 'Then,', 'after', 'a', 'minute,', 'she', 'turns', 'and', 'continues', 'to', 'walk', 'off', 'into', 'the', 'woods.', 'ON', 'JENNIFER:', 'As', 'she', 'continues', 'to', 'walk', 'away', '-', 'and', 'then', '-', 'as', 'she', 'continue', 'closer', 'to', 'CAMERA', '-', 'the', 'smallest', 'hint', 'of', 'a', 'wry', 'smile', '-', 'nearly', 'imperceptible,', 'but', "it's", 'there,', 'creeps', 'across', 'her', 'face.', '<b>', 'SMASH', 'OUT:', '</b>']
+1
+Question 15 in progress...
+this is length of string_tokenized: 23609
+this is chonk size: 40000
+this is the division: 0.590225
+This is the floor of div: 0
+Here are the last 100 words of each: ['DUSK', 'A106', '</b>', 'Jennifer', 'turns', 'to', 'the', 'dilapidated', 'shack.', 'in', 'the', 'distance', 'she', 'sees', 'the', 'officers', 'escorting', 'a', 'handcuffed', 'Matthew', 'out.', 'SLOW', 'MOTION:', 'As', 'Matthew', 'is', 'wildly', 'kicking', 'and', 'screaming', 'in', 'a', 'furious', 'panic.', 'The', 'Officers', 'try', 'to', 'subdue', 'him.', 'Jennifer', 'just', 'stares,', 'devoid', 'of', 'emotion.', 'Then,', 'after', 'a', 'minute,', 'she', 'turns', 'and', 'continues', 'to', 'walk', 'off', 'into', 'the', 'woods.', 'ON', 'JENNIFER:', 'As', 'she', 'continues', 'to', 'walk', 'away', '-', 'and', 'then', '-', 'as', 'she', 'continue', 'closer', 'to', 'CAMERA', '-', 'the', 'smallest', 'hint', 'of', 'a', 'wry', 'smile', '-', 'nearly', 'imperceptible,', 'but', "it's", 'there,', 'creeps', 'across', 'her', 'face.', '<b>', 'SMASH', 'OUT:', '</b>']
+1
+Question 16 in progress...
+this is length of string_tokenized: 24249
+this is chonk size: 40000
+this is the division: 0.606225
+This is the floor of div: 0
+Here are the last 100 words of each: ['body', 'is', 'released.', 'He', 'looks', 'down', 'through', 'tears', 'and', 'tears', 'at', 'Morgan.', '<b>', 'MORGAN', '</b>', 'Did', 'someone', 'save', 'me?', '<b>', 'GRAHAM', '</b>', 'Yeah', 'baby.', 'I', 'think', 'someone', 'did.', '<b>', 'CUT', 'TO:', '</b>', '<b>INT.', 'WINDOW', '-', 'MORNING', '</b>', 'We', 'look', 'out', 'through', 'the', 'broken', 'glass', 'of', 'the', 'second', 'story', 'bedroom', 'window.', 'We', 'see', 'the', 'worn', 'jungle', 'gym.', 'We', 'see', 'the', 'single', 'tree', 'throwing', 'shade', 'on', 'the', 'picnic', 'table.', 'We', 'see', 'the', 'golden', 'brown', 'corn', 'lining', 'the', 'back', 'of', 'the', 'yard.', 'And', 'we', 'see', 'the', 'Hess', 'family.', 'Sitting', 'together', 'on', 'the', 'grass.', 'Huddled', 'together', 'in', 'the', 'sunlight.', '<b>', 'FADE', 'TO', 'BLACK.', '</b>']
+1
+Question 17 in progress...
+this is length of string_tokenized: 24249
+this is chonk size: 40000
+this is the division: 0.606225
+This is the floor of div: 0
+Here are the last 100 words of each: ['body', 'is', 'released.', 'He', 'looks', 'down', 'through', 'tears', 'and', 'tears', 'at', 'Morgan.', '<b>', 'MORGAN', '</b>', 'Did', 'someone', 'save', 'me?', '<b>', 'GRAHAM', '</b>', 'Yeah', 'baby.', 'I', 'think', 'someone', 'did.', '<b>', 'CUT', 'TO:', '</b>', '<b>INT.', 'WINDOW', '-', 'MORNING', '</b>', 'We', 'look', 'out', 'through', 'the', 'broken', 'glass', 'of', 'the', 'second', 'story', 'bedroom', 'window.', 'We', 'see', 'the', 'worn', 'jungle', 'gym.', 'We', 'see', 'the', 'single', 'tree', 'throwing', 'shade', 'on', 'the', 'picnic', 'table.', 'We', 'see', 'the', 'golden', 'brown', 'corn', 'lining', 'the', 'back', 'of', 'the', 'yard.', 'And', 'we', 'see', 'the', 'Hess', 'family.', 'Sitting', 'together', 'on', 'the', 'grass.', 'Huddled', 'together', 'in', 'the', 'sunlight.', '<b>', 'FADE', 'TO', 'BLACK.', '</b>']
+1
+Question 18 in progress...
+this is length of string_tokenized: 26869
+this is chonk size: 40000
+this is the division: 0.671725
+This is the floor of div: 0
+Here are the last 100 words of each: ['was', 'going', 'to', 'talk', 'about', 'how', 'I', "haven't", 'had', 'sex', 'in', 'so', 'long,', 'that', 'I', "can't", 'even', 'remember', 'my', 'previous', 'sexual', 'experiences', 'so', 'I', 'can', 'masturbate', 'to', 'them.', 'GEORGE', 'You', 'should', 'say,', 'now', 'when', 'I', 'masturbate,', 'I', 'have', 'to', 'think', 'about', 'the', 'last', 'time', 'I', 'masturbated.', 'IRA', "That's", 'a', 'good', 'one.', 'You', 'can', 'write.', 'GEORGE', 'You', 'know,', 'I', 'always', 'wanted', 'to', 'be', 'part', 'of', 'the', 'comedy', 'field.', 'As', 'the', 'camera', 'pulls', 'back,', 'George', 'continues', 'to', 'pitch', 'Ira', 'jokes', 'for', 'his', 'act,', 'the', 'first', 'selfless', 'act', "we've", 'seen', 'him', 'commit', 'in', 'the', 'entire', 'film.', 'As', 'their', 'friendship', 'rekindles,', 'we...', 'THE', 'END']
+1
+Question 19 in progress...
+this is length of string_tokenized: 26869
+this is chonk size: 40000
+this is the division: 0.671725
+This is the floor of div: 0
+Here are the last 100 words of each: ['was', 'going', 'to', 'talk', 'about', 'how', 'I', "haven't", 'had', 'sex', 'in', 'so', 'long,', 'that', 'I', "can't", 'even', 'remember', 'my', 'previous', 'sexual', 'experiences', 'so', 'I', 'can', 'masturbate', 'to', 'them.', 'GEORGE', 'You', 'should', 'say,', 'now', 'when', 'I', 'masturbate,', 'I', 'have', 'to', 'think', 'about', 'the', 'last', 'time', 'I', 'masturbated.', 'IRA', "That's", 'a', 'good', 'one.', 'You', 'can', 'write.', 'GEORGE', 'You', 'know,', 'I', 'always', 'wanted', 'to', 'be', 'part', 'of', 'the', 'comedy', 'field.', 'As', 'the', 'camera', 'pulls', 'back,', 'George', 'continues', 'to', 'pitch', 'Ira', 'jokes', 'for', 'his', 'act,', 'the', 'first', 'selfless', 'act', "we've", 'seen', 'him', 'commit', 'in', 'the', 'entire', 'film.', 'As', 'their', 'friendship', 'rekindles,', 'we...', 'THE', 'END']
+1
+Question 20 in progress...
+this is length of string_tokenized: 40055
+this is chonk size: 40000
+this is the division: 1.001375
+This is the floor of div: 1
+Here are the last 100 words of each: ['very', 'last', 'time...', 'and', "it's", 'dark...', 'where', "it's", 'peaceful,', 'even', 'safe...', '301', 'INT.', 'TRAIN', 'STATION,', 'NEW', 'ORLEANS', '-', 'DAY,', 'PRESENT', '301', 'We', 'see', 'the', 'new', 'clock', 'high', 'on', 'the', 'terminal', 'wall', 'running', 'the', 'right', 'way...', 'going', 'forward...', 'and', 'as', 'the', 'clock', 'turns...', 'people', 'hurrying', 'to', 'their', 'destinations,', 'living', 'their', 'lives...', '302', 'INT.', 'STORAGE', 'ROOM,', 'TRAIN', 'STATION,', 'NEW', 'ORLEANS', '-', 'DAY', '302', 'A', 'storage', 'room.', 'Old', 'track', 'signs.', 'Old', 'waiting', 'room', 'chairs.', 'The', 'discarded,', 'and', 'forgotten.', 'And', 'lying', 'on', 'its', 'side', 'under', 'an', 'old', 'tarpaulin', '--', 'is', '"Mr.', 'Cake\'s"', 'clock...', 'the', 'angel', 'still', 'pushing', 'the', 'hands...', 'running', 'backwards...', 'forever...', 'FADE', 'OUT:']
+2
+WARNING 11-30 18:01:29 scheduler.py:914] Input prompt (512 tokens) + lookahead slots (0) is too long and exceeds the capacity of block_manager
+Question 21 in progress...
+this is length of string_tokenized: 21709
+this is chonk size: 40000
+this is the division: 0.542725
+This is the floor of div: 0
+Here are the last 100 words of each: ['C-17', '-', 'CONTINUOUS', 'The', 'cavernous', 'cargo', 'plane', 'is', 'empty', 'of', 'passengers.', 'The', 'pilot', 'motions', 'to', 'the', 'seats.', 'PILOT', 'Are', 'you', 'Maya?', 'MAYA', 'Yeah.', 'PILOT', "That's", 'the', 'only', 'name', 'they', 'gave', 'me.', '(ODD)', 'You', 'can', 'sit', 'wherever', 'you', 'want,', "you're", 'the', 'only', 'one', 'on', 'the', 'manifest.', '111.', 'Maya', 'sits', 'down,', 'buckles', 'in.', 'The', 'PILOT', 'heads', 'back', 'to', 'the', 'CABIN', 'PILOT', "(CONT'D)", 'You', 'must', 'be', 'pretty', 'important,', 'you', 'got', 'the', 'whole', 'plane', 'to', 'yourself!', 'Beat.', 'PILOT', "(CONT'D)", 'Where', 'do', 'you', 'want', 'to', 'go?', "She's", 'speechless.', 'Overwhelmed.', 'Finally,', 'she', 'lets', 'go.', 'Those', 'luminous', 'eyes', 'become', 'pools', 'of', 'relief', 'and', 'pain.', 'CUT', 'TO:', 'BLACK']
+1
+Question 22 in progress...
+this is length of string_tokenized: 22930
+this is chonk size: 40000
+this is the division: 0.57325
+This is the floor of div: 0
+Here are the last 100 words of each: ['Chrissake.', 'Plenty', 'of', 'places', 'to', 'get', 'lost', 'here.', 'CALL', 'So', "I've", 'heard.', 'After', 'a', 'moment,', 'she', 'gets', 'up', 'as', 'well,', 'goes', 'over', 'to', 'Ripley.', 'She', 'hands', 'her', 'the', 'bottle.', 'Ripley', 'looks', 'at', 'it.', 'CALL', "It's", 'a', 'drink.', 'You', 'drink', 'it.', 'RIPLEY', '(smiling)', 'I', 'remember.', 'She', 'drinks.', 'CALL', 'So,', 'what', 'do', 'you', 'think?', 'RIPLEY', 'Think?', 'CALL', 'What', 'should', 'we', 'do', 'now?', 'RIPLEY', 'I', "don't", 'know.', 'She', 'looks', 'out', 'in', 'the', 'distance...', 'RIPLEY', "I'm", 'a', 'stranger', 'here', 'myself', 'The', 'two', 'of', 'them', 'stand', 'side', 'by', 'side', 'staring', 'out', 'at', 'the', 'unfamiliar', 'horizon,', 'as', 'the', 'newborn', 'dwindles', 'in', 'the', 'dancing', 'flame.', 'THE', 'END']
+1
+Question 23 in progress...
+this is length of string_tokenized: 22930
+this is chonk size: 40000
+this is the division: 0.57325
+This is the floor of div: 0
+Here are the last 100 words of each: ['Chrissake.', 'Plenty', 'of', 'places', 'to', 'get', 'lost', 'here.', 'CALL', 'So', "I've", 'heard.', 'After', 'a', 'moment,', 'she', 'gets', 'up', 'as', 'well,', 'goes', 'over', 'to', 'Ripley.', 'She', 'hands', 'her', 'the', 'bottle.', 'Ripley', 'looks', 'at', 'it.', 'CALL', "It's", 'a', 'drink.', 'You', 'drink', 'it.', 'RIPLEY', '(smiling)', 'I', 'remember.', 'She', 'drinks.', 'CALL', 'So,', 'what', 'do', 'you', 'think?', 'RIPLEY', 'Think?', 'CALL', 'What', 'should', 'we', 'do', 'now?', 'RIPLEY', 'I', "don't", 'know.', 'She', 'looks', 'out', 'in', 'the', 'distance...', 'RIPLEY', "I'm", 'a', 'stranger', 'here', 'myself', 'The', 'two', 'of', 'them', 'stand', 'side', 'by', 'side', 'staring', 'out', 'at', 'the', 'unfamiliar', 'horizon,', 'as', 'the', 'newborn', 'dwindles', 'in', 'the', 'dancing', 'flame.', 'THE', 'END']
+1
+Question 24 in progress...
+this is length of string_tokenized: 26111
+this is chonk size: 40000
+this is the division: 0.652775
+This is the floor of div: 0
+Here are the last 100 words of each: ['Hills', 'surrounding', 'The', 'Neighborhood', 'lead', 'towards', "Pike's", 'Peak,', 'which', 'sits', 'on', 'the', 'horizon', 'like', 'a', 'King', 'on', 'A', 'Throne.', 'WE', 'SEE:', 'Something', 'Burning.', 'CLOSER--', 'WE', 'SEE', 'a', 'CROSS,', 'its', 'Flames', 'dancing,', 'sending', 'embers', 'into', 'The', 'BLACK,', 'Colorado', 'Sky.', '<b>', 'OMITTED', '</b>', '<b>', 'EXT.', 'UVA', 'CAMPUS', '-', 'NIGHT', '</b>', 'WE', 'SEE', 'FOOTAGE', 'of', 'NEO-NAZIS,', 'ALT', 'RIGHT,', 'THE', 'KLAN,', 'NEO-', '<b>', 'CONFEDERATES', 'AND', 'WHITE', 'NATIONALISTS', 'MARCHING,', 'HOLDING', 'UP', '</b><b>', 'THEIR', 'TIKI', 'TORCHES,', 'CHANTING.', '</b>', '<b>', 'AMERICAN', 'TERRORISTS', '</b><b>', 'YOU', 'WILL', 'NOT', 'REPLACE', 'US!!!', '</b><b>', 'JEWS', 'WILL', 'NOT', 'REPLACE', 'US!!!', '</b><b>', 'BLOOD', 'AND', 'SOIL!!!', '</b>', '<b>', 'CUT', 'TO', 'BLACK.', '</b>', '<b>', 'FINI.', '</b>']
+1
+Question 25 in progress...
+this is length of string_tokenized: 26111
+this is chonk size: 40000
+this is the division: 0.652775
+This is the floor of div: 0
+Here are the last 100 words of each: ['Hills', 'surrounding', 'The', 'Neighborhood', 'lead', 'towards', "Pike's", 'Peak,', 'which', 'sits', 'on', 'the', 'horizon', 'like', 'a', 'King', 'on', 'A', 'Throne.', 'WE', 'SEE:', 'Something', 'Burning.', 'CLOSER--', 'WE', 'SEE', 'a', 'CROSS,', 'its', 'Flames', 'dancing,', 'sending', 'embers', 'into', 'The', 'BLACK,', 'Colorado', 'Sky.', '<b>', 'OMITTED', '</b>', '<b>', 'EXT.', 'UVA', 'CAMPUS', '-', 'NIGHT', '</b>', 'WE', 'SEE', 'FOOTAGE', 'of', 'NEO-NAZIS,', 'ALT', 'RIGHT,', 'THE', 'KLAN,', 'NEO-', '<b>', 'CONFEDERATES', 'AND', 'WHITE', 'NATIONALISTS', 'MARCHING,', 'HOLDING', 'UP', '</b><b>', 'THEIR', 'TIKI', 'TORCHES,', 'CHANTING.', '</b>', '<b>', 'AMERICAN', 'TERRORISTS', '</b><b>', 'YOU', 'WILL', 'NOT', 'REPLACE', 'US!!!', '</b><b>', 'JEWS', 'WILL', 'NOT', 'REPLACE', 'US!!!', '</b><b>', 'BLOOD', 'AND', 'SOIL!!!', '</b>', '<b>', 'CUT', 'TO', 'BLACK.', '</b>', '<b>', 'FINI.', '</b>']
+1
+Question 26 in progress...
+this is length of string_tokenized: 26111
+this is chonk size: 40000
+this is the division: 0.652775
+This is the floor of div: 0
+Here are the last 100 words of each: ['Hills', 'surrounding', 'The', 'Neighborhood', 'lead', 'towards', "Pike's", 'Peak,', 'which', 'sits', 'on', 'the', 'horizon', 'like', 'a', 'King', 'on', 'A', 'Throne.', 'WE', 'SEE:', 'Something', 'Burning.', 'CLOSER--', 'WE', 'SEE', 'a', 'CROSS,', 'its', 'Flames', 'dancing,', 'sending', 'embers', 'into', 'The', 'BLACK,', 'Colorado', 'Sky.', '<b>', 'OMITTED', '</b>', '<b>', 'EXT.', 'UVA', 'CAMPUS', '-', 'NIGHT', '</b>', 'WE', 'SEE', 'FOOTAGE', 'of', 'NEO-NAZIS,', 'ALT', 'RIGHT,', 'THE', 'KLAN,', 'NEO-', '<b>', 'CONFEDERATES', 'AND', 'WHITE', 'NATIONALISTS', 'MARCHING,', 'HOLDING', 'UP', '</b><b>', 'THEIR', 'TIKI', 'TORCHES,', 'CHANTING.', '</b>', '<b>', 'AMERICAN', 'TERRORISTS', '</b><b>', 'YOU', 'WILL', 'NOT', 'REPLACE', 'US!!!', '</b><b>', 'JEWS', 'WILL', 'NOT', 'REPLACE', 'US!!!', '</b><b>', 'BLOOD', 'AND', 'SOIL!!!', '</b>', '<b>', 'CUT', 'TO', 'BLACK.', '</b>', '<b>', 'FINI.', '</b>']
+1
+Question 27 in progress...
+this is length of string_tokenized: 26111
+this is chonk size: 40000
+this is the division: 0.652775
+This is the floor of div: 0
+Here are the last 100 words of each: ['Hills', 'surrounding', 'The', 'Neighborhood', 'lead', 'towards', "Pike's", 'Peak,', 'which', 'sits', 'on', 'the', 'horizon', 'like', 'a', 'King', 'on', 'A', 'Throne.', 'WE', 'SEE:', 'Something', 'Burning.', 'CLOSER--', 'WE', 'SEE', 'a', 'CROSS,', 'its', 'Flames', 'dancing,', 'sending', 'embers', 'into', 'The', 'BLACK,', 'Colorado', 'Sky.', '<b>', 'OMITTED', '</b>', '<b>', 'EXT.', 'UVA', 'CAMPUS', '-', 'NIGHT', '</b>', 'WE', 'SEE', 'FOOTAGE', 'of', 'NEO-NAZIS,', 'ALT', 'RIGHT,', 'THE', 'KLAN,', 'NEO-', '<b>', 'CONFEDERATES', 'AND', 'WHITE', 'NATIONALISTS', 'MARCHING,', 'HOLDING', 'UP', '</b><b>', 'THEIR', 'TIKI', 'TORCHES,', 'CHANTING.', '</b>', '<b>', 'AMERICAN', 'TERRORISTS', '</b><b>', 'YOU', 'WILL', 'NOT', 'REPLACE', 'US!!!', '</b><b>', 'JEWS', 'WILL', 'NOT', 'REPLACE', 'US!!!', '</b><b>', 'BLOOD', 'AND', 'SOIL!!!', '</b>', '<b>', 'CUT', 'TO', 'BLACK.', '</b>', '<b>', 'FINI.', '</b>']
+1
+Question 28 in progress...
+this is length of string_tokenized: 23160
+this is chonk size: 40000
+this is the division: 0.579
+This is the floor of div: 0
+Here are the last 100 words of each: ['car,', 'starts', 'it', 'and', 'goes', 'back', 'down', 'the', 'hill.', 'George', 'sits', 'under', 'the', 'television', 'aerial', 'and', 'watches', 'her', 'car', 'go', 'down', 'the', 'hill,', 'periodically', 'flashing', 'INTO', 'VIEW.', 'Finally', 'she', 'pulls', 'up', 'while', 'Lester', 'is', 'pacing', 'back', 'and', 'forth.', 'She', 'hurries', 'to', 'him.', 'He', 'taxes', 'her', 'by', 'the', 'shoulders.', 'They', 'talk', 'for', 'a', 'moment.', 'The', 'discussion', 'looks', 'like', 'Jackie', 'is', 'giving', 'Lester', 'directions.', 'She', 'glances', 'uneasily', 'up', 'toward', 'George.', 'George', 'is', 'watching', 'them.', 'He', 'sees', 'that', 'Lester', 'and', 'Jackie', 'have', 'their', 'backs', 'to', 'him,', 'his', 'arm', 'around', 'her', 'shoulder,', 'hers', 'around', 'his', 'waist.', "They're", 'going', 'through', 'the', 'front', 'door.', 'THE', 'END']
+1
+Question 29 in progress...
+this is length of string_tokenized: 23160
+this is chonk size: 40000
+this is the division: 0.579
+This is the floor of div: 0
+Here are the last 100 words of each: ['car,', 'starts', 'it', 'and', 'goes', 'back', 'down', 'the', 'hill.', 'George', 'sits', 'under', 'the', 'television', 'aerial', 'and', 'watches', 'her', 'car', 'go', 'down', 'the', 'hill,', 'periodically', 'flashing', 'INTO', 'VIEW.', 'Finally', 'she', 'pulls', 'up', 'while', 'Lester', 'is', 'pacing', 'back', 'and', 'forth.', 'She', 'hurries', 'to', 'him.', 'He', 'taxes', 'her', 'by', 'the', 'shoulders.', 'They', 'talk', 'for', 'a', 'moment.', 'The', 'discussion', 'looks', 'like', 'Jackie', 'is', 'giving', 'Lester', 'directions.', 'She', 'glances', 'uneasily', 'up', 'toward', 'George.', 'George', 'is', 'watching', 'them.', 'He', 'sees', 'that', 'Lester', 'and', 'Jackie', 'have', 'their', 'backs', 'to', 'him,', 'his', 'arm', 'around', 'her', 'shoulder,', 'hers', 'around', 'his', 'waist.', "They're", 'going', 'through', 'the', 'front', 'door.', 'THE', 'END']
+1
+Question 30 in progress...
+this is length of string_tokenized: 28990
+this is chonk size: 40000
+this is the division: 0.72475
+This is the floor of div: 0
+Here are the last 100 words of each: ['of', 'these', 'men,', 'the', 'people', 'closest', 'to', 'him', 'in', 'the', 'world.', 'Beat.', 'Then', '--', 'GORDY', "It's", 'good', 'to', 'be', 'home.', "Gordy's", 'still', 'in', 'pain,', 'still', 'missing', 'the', 'wife', 'and', 'son', "he'll", 'never', 'see', 'again.', 'But', "Gordy's", 'gonna', 'be', 'alright.', "Mauro's", 'gonna', 'be', 'with', 'him.', "There'll", 'be', 'fires', 'to', 'put', 'out', 'and', 'lives', 'to', 'save', 'and', 'basketball', 'games', 'and', 'the', 'multitude', 'of', 'miseries', 'and', 'joys', 'the', 'firefighters', 'in', 'Spanish', 'Harlem', 'see', 'each', 'and', 'every', 'day.', 'As', 'we', 'PULL', 'BACK,', 'OUT', 'and', 'AWAY', 'from', 'the', 'old', 'brick', 'edifice', 'from', 'which', 'the', 'big', 'red', 'truck', 'will', 'come,', 'bringing', 'help...', 'FADE', 'OUT.', 'THE', 'END']
+1
+Question 31 in progress...
+this is length of string_tokenized: 20532
+this is chonk size: 40000
+this is the division: 0.5133
+This is the floor of div: 0
+Here are the last 100 words of each: ['it.', 'She', 'puts', 'down', 'the', 'dishes', 'and', 'goes', 'to', 'the', 'door.', 'Opens', 'it', 'and', 'looks', 'out', 'to', 'see...', 'Nothing.', 'Not', 'even', 'by', 'the', 'swingset.', 'She', 'sighs.', 'About', 'to', 'head', 'back', 'inside', 'when', 'she', 'spies', 'A', 'GLINT', 'OF', 'LIGHT.', 'By', 'the', 'oak', 'tree', 'in', 'the', 'front.', 'She', 'steps', 'outside.', 'Walks', 'down', 'until', 'she', 'sees', 'what', 'it', 'is.', 'Her', 'breath', 'hitches', 'in', 'her', 'chest.', 'A', 'frilly', 'purple', 'ribbon', 'is', 'tied', 'around', 'the', 'old', 'oak', 'tree.', 'And', 'now', 'there', 'are', 'tears', 'in', "Jolene's", 'eyes.', 'Because', 'she', 'knows', 'what', 'it', 'means.', 'Her', 'husband', 'is', 'alive.', 'And', 'he', 'will', 'make', 'it', 'home.', 'Someday.', 'FADE', 'OUT']
+1
+Question 32 in progress...
+this is length of string_tokenized: 20532
+this is chonk size: 40000
+this is the division: 0.5133
+This is the floor of div: 0
+Here are the last 100 words of each: ['it.', 'She', 'puts', 'down', 'the', 'dishes', 'and', 'goes', 'to', 'the', 'door.', 'Opens', 'it', 'and', 'looks', 'out', 'to', 'see...', 'Nothing.', 'Not', 'even', 'by', 'the', 'swingset.', 'She', 'sighs.', 'About', 'to', 'head', 'back', 'inside', 'when', 'she', 'spies', 'A', 'GLINT', 'OF', 'LIGHT.', 'By', 'the', 'oak', 'tree', 'in', 'the', 'front.', 'She', 'steps', 'outside.', 'Walks', 'down', 'until', 'she', 'sees', 'what', 'it', 'is.', 'Her', 'breath', 'hitches', 'in', 'her', 'chest.', 'A', 'frilly', 'purple', 'ribbon', 'is', 'tied', 'around', 'the', 'old', 'oak', 'tree.', 'And', 'now', 'there', 'are', 'tears', 'in', "Jolene's", 'eyes.', 'Because', 'she', 'knows', 'what', 'it', 'means.', 'Her', 'husband', 'is', 'alive.', 'And', 'he', 'will', 'make', 'it', 'home.', 'Someday.', 'FADE', 'OUT']
+1
+Question 33 in progress...
+this is length of string_tokenized: 25096
+this is chonk size: 40000
+this is the division: 0.6274
+This is the floor of div: 0
+Here are the last 100 words of each: ['The', 'door', 'to', 'the', "men's", 'room', 'EXPLODES', 'OPEN.', 'Abigail', 'comes', 'flying', 'out.', 'She', 'hits', 'the', 'far', 'wall', 'of', 'the', 'hallway,', 'slides', 'to', 'th', 'floor.', 'But', "she's", 'up', 'in', 'an', 'instant,', 'pulling', 'a', 'knife', 'on', '--', 'KING', '(raising', 'his', 'four-barrel)', 'A', 'fur', 'coat', 'that', 'sticks', 'to', 'your', 'neck.', 'A', 'HILL-BILLY', 'HIPSTER', 'WERE-CREATURE,', 'wearing', 'a', 'blood-soaked', 'Stray', 'Cats-style', 'suit.', 'The', 'ephedrine', 'nightmare', 'creature', 'looks', 'at', 'King,', 'opening', 'his', 'elongated', 'snout', 'to', 'flash', 'a', 'set', 'of', 'razor-sharp', 'canid', 'teeth.', 'KING', "Don't", 'you', 'know', 'fur', 'is', 'murder?', 'As', 'King', 'FIRES', 'point-blank', 'into', 'the', 'were-creature', 'we', '--', 'CUT', 'TO', 'BLACK.', 'CUE', 'MUSIC.', 'END', 'CREDITS', 'ROLL']
+1
+Question 34 in progress...
+this is length of string_tokenized: 26853
+this is chonk size: 40000
+this is the division: 0.671325
+This is the floor of div: 0
+Here are the last 100 words of each: ['office.', '(CONTINUED)', '129', 'CONTINUED:', 'NARRATOR', '(V.O.)', 'Rex', 'gave', 'up', 'his', 'pursuit', 'of', 'Lori.', 'Not', 'long', 'after', 'he', 'fell', 'into', 'a', 'deep', 'depression', 'and', 'died', 'of', 'Lou', "Gehrig's", 'disease.', 'INSERT:', 'footage', 'of', 'Donny', 'dancing', 'in', 'his', 'living', 'room.', 'NARRATOR', '(V.O.)', 'Donny', 'was', 'arrested', 'by', 'Boston', 'police', 'and', 'charged', 'with', 'kidnapping', 'a', 'plush', 'toy.', 'The', 'charges', 'were', 'dropped', 'when', 'everyone', 'realized', 'how', 'completely', 'stupid', 'that', 'sounded.', 'INSERT:', 'footage', 'of', 'Robert,', 'talking', 'to', 'Ted', 'in', 'his', 'bedroom.', 'NARRATOR', '(V.O.)', 'Robert', 'got', 'a', 'trainer,', 'lost', 'a', 'substantial', 'amount', 'of', 'weight,', 'and', 'went', 'on', 'to', 'become', 'Taylor', 'Lautner.', 'INSERT:', 'photo', 'of', 'TAYLOR', 'LAUTNER.', 'THE', 'END']
+1
+Question 35 in progress...
+this is length of string_tokenized: 26853
+this is chonk size: 40000
+this is the division: 0.671325
+This is the floor of div: 0
+Here are the last 100 words of each: ['office.', '(CONTINUED)', '129', 'CONTINUED:', 'NARRATOR', '(V.O.)', 'Rex', 'gave', 'up', 'his', 'pursuit', 'of', 'Lori.', 'Not', 'long', 'after', 'he', 'fell', 'into', 'a', 'deep', 'depression', 'and', 'died', 'of', 'Lou', "Gehrig's", 'disease.', 'INSERT:', 'footage', 'of', 'Donny', 'dancing', 'in', 'his', 'living', 'room.', 'NARRATOR', '(V.O.)', 'Donny', 'was', 'arrested', 'by', 'Boston', 'police', 'and', 'charged', 'with', 'kidnapping', 'a', 'plush', 'toy.', 'The', 'charges', 'were', 'dropped', 'when', 'everyone', 'realized', 'how', 'completely', 'stupid', 'that', 'sounded.', 'INSERT:', 'footage', 'of', 'Robert,', 'talking', 'to', 'Ted', 'in', 'his', 'bedroom.', 'NARRATOR', '(V.O.)', 'Robert', 'got', 'a', 'trainer,', 'lost', 'a', 'substantial', 'amount', 'of', 'weight,', 'and', 'went', 'on', 'to', 'become', 'Taylor', 'Lautner.', 'INSERT:', 'photo', 'of', 'TAYLOR', 'LAUTNER.', 'THE', 'END']
+1
+Question 36 in progress...
+this is length of string_tokenized: 26853
+this is chonk size: 40000
+this is the division: 0.671325
+This is the floor of div: 0
+Here are the last 100 words of each: ['office.', '(CONTINUED)', '129', 'CONTINUED:', 'NARRATOR', '(V.O.)', 'Rex', 'gave', 'up', 'his', 'pursuit', 'of', 'Lori.', 'Not', 'long', 'after', 'he', 'fell', 'into', 'a', 'deep', 'depression', 'and', 'died', 'of', 'Lou', "Gehrig's", 'disease.', 'INSERT:', 'footage', 'of', 'Donny', 'dancing', 'in', 'his', 'living', 'room.', 'NARRATOR', '(V.O.)', 'Donny', 'was', 'arrested', 'by', 'Boston', 'police', 'and', 'charged', 'with', 'kidnapping', 'a', 'plush', 'toy.', 'The', 'charges', 'were', 'dropped', 'when', 'everyone', 'realized', 'how', 'completely', 'stupid', 'that', 'sounded.', 'INSERT:', 'footage', 'of', 'Robert,', 'talking', 'to', 'Ted', 'in', 'his', 'bedroom.', 'NARRATOR', '(V.O.)', 'Robert', 'got', 'a', 'trainer,', 'lost', 'a', 'substantial', 'amount', 'of', 'weight,', 'and', 'went', 'on', 'to', 'become', 'Taylor', 'Lautner.', 'INSERT:', 'photo', 'of', 'TAYLOR', 'LAUTNER.', 'THE', 'END']
+1
+Question 37 in progress...
+this is length of string_tokenized: 28574
+this is chonk size: 40000
+this is the division: 0.71435
+This is the floor of div: 0
+Here are the last 100 words of each: ['comes', 'out,', 'sits', 'beside', 'his', 'wife', 'CHARLY', 'as', 'she', 'finishes', 'eating.', 'Says', 'softly:', 'HAL', 'Just', 'talked', 'to', 'Dr.', 'Sullivan,', "she's", 'gonna', 'need', 'the', 'full', 'braces.', 'Even', 'with', 'your', 'teaching,', 'insurance', "won't", 'cover', 'it...', 'I', "don't", 'know', 'what', 'to', 'do.', 'Pause.', 'Charly', 'says', 'nothing.', 'The', 'dog', 'parades', 'up', 'to', 'Caitlin', 'with', 'a', 'stick', 'in', 'its', 'jaws.', 'A', 'farm', 'truck', 'goes', 'by,', 'a', 'faraway', 'speck.', 'Charly', 'absent-mindedly', 'rolls', 'a', 'steak', 'knife', 'in', 'her', 'fingers.', 'Eyes', 'far', 'away.', 'It', 'never', 'occurs', 'to', 'her', 'what', "she's", 'done', 'until', 'the', 'chirping', 'stops.', 'Ten', 'feet', 'away,', 'the', 'knife', 'quivers.', 'FADE', 'OUT.', 'ROLL', 'END', 'CREDITS.', 'THE', 'END']
+1
+Question 38 in progress...
+this is length of string_tokenized: 28574
+this is chonk size: 40000
+this is the division: 0.71435
+This is the floor of div: 0
+Here are the last 100 words of each: ['comes', 'out,', 'sits', 'beside', 'his', 'wife', 'CHARLY', 'as', 'she', 'finishes', 'eating.', 'Says', 'softly:', 'HAL', 'Just', 'talked', 'to', 'Dr.', 'Sullivan,', "she's", 'gonna', 'need', 'the', 'full', 'braces.', 'Even', 'with', 'your', 'teaching,', 'insurance', "won't", 'cover', 'it...', 'I', "don't", 'know', 'what', 'to', 'do.', 'Pause.', 'Charly', 'says', 'nothing.', 'The', 'dog', 'parades', 'up', 'to', 'Caitlin', 'with', 'a', 'stick', 'in', 'its', 'jaws.', 'A', 'farm', 'truck', 'goes', 'by,', 'a', 'faraway', 'speck.', 'Charly', 'absent-mindedly', 'rolls', 'a', 'steak', 'knife', 'in', 'her', 'fingers.', 'Eyes', 'far', 'away.', 'It', 'never', 'occurs', 'to', 'her', 'what', "she's", 'done', 'until', 'the', 'chirping', 'stops.', 'Ten', 'feet', 'away,', 'the', 'knife', 'quivers.', 'FADE', 'OUT.', 'ROLL', 'END', 'CREDITS.', 'THE', 'END']
+1
+Question 39 in progress...
+this is length of string_tokenized: 28574
+this is chonk size: 40000
+this is the division: 0.71435
+This is the floor of div: 0
+Here are the last 100 words of each: ['comes', 'out,', 'sits', 'beside', 'his', 'wife', 'CHARLY', 'as', 'she', 'finishes', 'eating.', 'Says', 'softly:', 'HAL', 'Just', 'talked', 'to', 'Dr.', 'Sullivan,', "she's", 'gonna', 'need', 'the', 'full', 'braces.', 'Even', 'with', 'your', 'teaching,', 'insurance', "won't", 'cover', 'it...', 'I', "don't", 'know', 'what', 'to', 'do.', 'Pause.', 'Charly', 'says', 'nothing.', 'The', 'dog', 'parades', 'up', 'to', 'Caitlin', 'with', 'a', 'stick', 'in', 'its', 'jaws.', 'A', 'farm', 'truck', 'goes', 'by,', 'a', 'faraway', 'speck.', 'Charly', 'absent-mindedly', 'rolls', 'a', 'steak', 'knife', 'in', 'her', 'fingers.', 'Eyes', 'far', 'away.', 'It', 'never', 'occurs', 'to', 'her', 'what', "she's", 'done', 'until', 'the', 'chirping', 'stops.', 'Ten', 'feet', 'away,', 'the', 'knife', 'quivers.', 'FADE', 'OUT.', 'ROLL', 'END', 'CREDITS.', 'THE', 'END']
+1
+Question 40 in progress...
+this is length of string_tokenized: 28574
+this is chonk size: 40000
+this is the division: 0.71435
+This is the floor of div: 0
+Here are the last 100 words of each: ['comes', 'out,', 'sits', 'beside', 'his', 'wife', 'CHARLY', 'as', 'she', 'finishes', 'eating.', 'Says', 'softly:', 'HAL', 'Just', 'talked', 'to', 'Dr.', 'Sullivan,', "she's", 'gonna', 'need', 'the', 'full', 'braces.', 'Even', 'with', 'your', 'teaching,', 'insurance', "won't", 'cover', 'it...', 'I', "don't", 'know', 'what', 'to', 'do.', 'Pause.', 'Charly', 'says', 'nothing.', 'The', 'dog', 'parades', 'up', 'to', 'Caitlin', 'with', 'a', 'stick', 'in', 'its', 'jaws.', 'A', 'farm', 'truck', 'goes', 'by,', 'a', 'faraway', 'speck.', 'Charly', 'absent-mindedly', 'rolls', 'a', 'steak', 'knife', 'in', 'her', 'fingers.', 'Eyes', 'far', 'away.', 'It', 'never', 'occurs', 'to', 'her', 'what', "she's", 'done', 'until', 'the', 'chirping', 'stops.', 'Ten', 'feet', 'away,', 'the', 'knife', 'quivers.', 'FADE', 'OUT.', 'ROLL', 'END', 'CREDITS.', 'THE', 'END']
+1
+Question 41 in progress...
+this is length of string_tokenized: 18966
+this is chonk size: 40000
+this is the division: 0.47415
+This is the floor of div: 0
+Here are the last 100 words of each: ['points', 'to', 'the', 'work', 'station', 'next', 'to', 'him', 'where', 'a', 'Bomb', 'Squad', 'Protocol', 'Program', 'is', 'waiting', 'on', 'the', 'screen.', '<b>', '</b>', 'Reilly', 'smiles', 'and', 'he', 'sits', 'next', 'to', 'Glass,', 'hands', 'him', 'the', 'transfer', 'papers', 'envelope.', '<b>', '</b>', 'GLASS', '(cont.)', '(softening)', 'Welcome', 'to', 'the', 'family.', '<b>', '</b>', 'Glass', 'accepts', 'the', 'papers', 'and', 'shakes', "Reilly's", 'hand.', '<b>', '</b><b>', 'REILLY', '</b>', 'Nice', 'to', 'be', 'here.', '<b>', '</b><b>', 'T.J.', '</b>', 'That', 'feeling', "won't", 'last', 'long.', '<b>', '</b><b>', '11/10/97', '97.', '</b><b>', '</b><b>', '</b><b>', '</b><b>', '</b>', 'T.J.,', 'Glass', 'and', 'Bev', 'start', 'laughing.', 'After', 'a', 'beat,', 'Reilly', 'joins', 'in', 'heartily.', '<b>', '</b><b>', 'FADE', 'OUT.', '</b><b>', '</b><b>', '</b>']
+1
+Question 42 in progress...
+this is length of string_tokenized: 18966
+this is chonk size: 40000
+this is the division: 0.47415
+This is the floor of div: 0
+Here are the last 100 words of each: ['points', 'to', 'the', 'work', 'station', 'next', 'to', 'him', 'where', 'a', 'Bomb', 'Squad', 'Protocol', 'Program', 'is', 'waiting', 'on', 'the', 'screen.', '<b>', '</b>', 'Reilly', 'smiles', 'and', 'he', 'sits', 'next', 'to', 'Glass,', 'hands', 'him', 'the', 'transfer', 'papers', 'envelope.', '<b>', '</b>', 'GLASS', '(cont.)', '(softening)', 'Welcome', 'to', 'the', 'family.', '<b>', '</b>', 'Glass', 'accepts', 'the', 'papers', 'and', 'shakes', "Reilly's", 'hand.', '<b>', '</b><b>', 'REILLY', '</b>', 'Nice', 'to', 'be', 'here.', '<b>', '</b><b>', 'T.J.', '</b>', 'That', 'feeling', "won't", 'last', 'long.', '<b>', '</b><b>', '11/10/97', '97.', '</b><b>', '</b><b>', '</b><b>', '</b><b>', '</b>', 'T.J.,', 'Glass', 'and', 'Bev', 'start', 'laughing.', 'After', 'a', 'beat,', 'Reilly', 'joins', 'in', 'heartily.', '<b>', '</b><b>', 'FADE', 'OUT.', '</b><b>', '</b><b>', '</b>']
+1
+Question 43 in progress...
+this is length of string_tokenized: 20755
+this is chonk size: 40000
+this is the division: 0.518875
+This is the floor of div: 0
+Here are the last 100 words of each: ['ayes', "he's", 'waiting', 'for', 'the', 'savant', 'chime.', 'The', 'BELL', 'CHIMES:', 'Four', 'The', 'FRENCH', 'DOORSNinat', 'JESSE', 'spins.', 'The', 'wind.', 'Nobody', 'there.', 'He', 'turns', 'back', 'to', 'his', 'reading,', 'his', 'heart', 'BEATING', 'WILDLY', 'again.', 'Glances', 'up', 'at', 'the', 'mirror.', 'Nothing.', 'His', 'HEARTBEATS', 'and', 'the', 'BELL', 'CHIMES', 'get', 'increasingly', 'LQ=', 'as,..', '.', 'He', 'reads,', 'glances', 'up', 'at', 'the', 'mirror,', 'shivers,', 'and', 'it', "isn't", 'in', 'the', 'cold.', 'Move,', 'to', 'ANOTHER', 'ANGLE', ':', 'Where', 'his', 'image', 'is', 'MULTIPLIED', 'TO', 'INFINITY', 'in', 'the', 'two', 'mirror!', 'Fear', 'is', 'written', 'on', 'his', 'face.', 'And', 'we', 'know', "he'll", 'be', 'looking', 'over', 'his', 'shoulder...', 'Until', 'the', 'day', 'he', 'dies.', 'SLOW', 'FADE']
+1
+Question 44 in progress...
+this is length of string_tokenized: 20755
+this is chonk size: 40000
+this is the division: 0.518875
+This is the floor of div: 0
+Here are the last 100 words of each: ['ayes', "he's", 'waiting', 'for', 'the', 'savant', 'chime.', 'The', 'BELL', 'CHIMES:', 'Four', 'The', 'FRENCH', 'DOORSNinat', 'JESSE', 'spins.', 'The', 'wind.', 'Nobody', 'there.', 'He', 'turns', 'back', 'to', 'his', 'reading,', 'his', 'heart', 'BEATING', 'WILDLY', 'again.', 'Glances', 'up', 'at', 'the', 'mirror.', 'Nothing.', 'His', 'HEARTBEATS', 'and', 'the', 'BELL', 'CHIMES', 'get', 'increasingly', 'LQ=', 'as,..', '.', 'He', 'reads,', 'glances', 'up', 'at', 'the', 'mirror,', 'shivers,', 'and', 'it', "isn't", 'in', 'the', 'cold.', 'Move,', 'to', 'ANOTHER', 'ANGLE', ':', 'Where', 'his', 'image', 'is', 'MULTIPLIED', 'TO', 'INFINITY', 'in', 'the', 'two', 'mirror!', 'Fear', 'is', 'written', 'on', 'his', 'face.', 'And', 'we', 'know', "he'll", 'be', 'looking', 'over', 'his', 'shoulder...', 'Until', 'the', 'day', 'he', 'dies.', 'SLOW', 'FADE']
+1
+Question 45 in progress...
+this is length of string_tokenized: 20755
+this is chonk size: 40000
+this is the division: 0.518875
+This is the floor of div: 0
+Here are the last 100 words of each: ['ayes', "he's", 'waiting', 'for', 'the', 'savant', 'chime.', 'The', 'BELL', 'CHIMES:', 'Four', 'The', 'FRENCH', 'DOORSNinat', 'JESSE', 'spins.', 'The', 'wind.', 'Nobody', 'there.', 'He', 'turns', 'back', 'to', 'his', 'reading,', 'his', 'heart', 'BEATING', 'WILDLY', 'again.', 'Glances', 'up', 'at', 'the', 'mirror.', 'Nothing.', 'His', 'HEARTBEATS', 'and', 'the', 'BELL', 'CHIMES', 'get', 'increasingly', 'LQ=', 'as,..', '.', 'He', 'reads,', 'glances', 'up', 'at', 'the', 'mirror,', 'shivers,', 'and', 'it', "isn't", 'in', 'the', 'cold.', 'Move,', 'to', 'ANOTHER', 'ANGLE', ':', 'Where', 'his', 'image', 'is', 'MULTIPLIED', 'TO', 'INFINITY', 'in', 'the', 'two', 'mirror!', 'Fear', 'is', 'written', 'on', 'his', 'face.', 'And', 'we', 'know', "he'll", 'be', 'looking', 'over', 'his', 'shoulder...', 'Until', 'the', 'day', 'he', 'dies.', 'SLOW', 'FADE']
+1
+Question 46 in progress...
+this is length of string_tokenized: 20755
+this is chonk size: 40000
+this is the division: 0.518875
+This is the floor of div: 0
+Here are the last 100 words of each: ['ayes', "he's", 'waiting', 'for', 'the', 'savant', 'chime.', 'The', 'BELL', 'CHIMES:', 'Four', 'The', 'FRENCH', 'DOORSNinat', 'JESSE', 'spins.', 'The', 'wind.', 'Nobody', 'there.', 'He', 'turns', 'back', 'to', 'his', 'reading,', 'his', 'heart', 'BEATING', 'WILDLY', 'again.', 'Glances', 'up', 'at', 'the', 'mirror.', 'Nothing.', 'His', 'HEARTBEATS', 'and', 'the', 'BELL', 'CHIMES', 'get', 'increasingly', 'LQ=', 'as,..', '.', 'He', 'reads,', 'glances', 'up', 'at', 'the', 'mirror,', 'shivers,', 'and', 'it', "isn't", 'in', 'the', 'cold.', 'Move,', 'to', 'ANOTHER', 'ANGLE', ':', 'Where', 'his', 'image', 'is', 'MULTIPLIED', 'TO', 'INFINITY', 'in', 'the', 'two', 'mirror!', 'Fear', 'is', 'written', 'on', 'his', 'face.', 'And', 'we', 'know', "he'll", 'be', 'looking', 'over', 'his', 'shoulder...', 'Until', 'the', 'day', 'he', 'dies.', 'SLOW', 'FADE']
+1
+Question 47 in progress...
+this is length of string_tokenized: 21873
+this is chonk size: 40000
+this is the division: 0.546825
+This is the floor of div: 0
+Here are the last 100 words of each: ['moment', 'of', 'honesty.', 'A', 'monumental', 'occasion', 'in', 'the', 'history', 'of', 'mankind.', '(PAUSE)', 'That', 'lowly', 'writer', 'who', 'stumbled', 'upon', 'the', 'ability', 'to', 'lie', 'went', 'on', 'to', 'become', 'one', 'of', 'the', 'most', 'important', 'men', 'of', 'his', 'age,', 'married', 'to', 'one', 'of', 'the', 'most', 'beautiful', 'women', 'of', 'his', 'time,', 'and', 'passed', 'on', 'the', 'lying', 'gene', 'to', 'generations', 'to', 'come.', '(PAUSE)', 'A', 'world', 'without', 'honesty', 'is', 'a', 'world', 'with', 'dreams.', 'A', 'world', 'with', 'pretense.', 'A', 'world', 'with', 'fiction.', 'A', 'world', 'with', 'flattery.', 'And', 'most', 'importantly,', 'a', 'world', 'with', 'true', 'love.', 'Put', 'simply,', 'a', 'world', 'very', 'much', 'like', 'our', 'own.', 'FADE', 'TO', 'BLACK.', 'THE', 'END']
+1
+Question 48 in progress...
+this is length of string_tokenized: 30320
+this is chonk size: 40000
+this is the division: 0.758
+This is the floor of div: 0
+Here are the last 100 words of each: ['smiles', 'and', 'make', 'a', 'minute', 'adjustment', 'in', 'the', "chair's", 'position.', 'Then', 'he', 'sits', 'down,', 'settles', 'back', 'and', 'begins', 'rocking.', 'Not', 'a', 'creak.', 'Marion', 'and', 'Charlotte', 'watch', 'Susan', 'run', 'out', 'of', 'the', 'yard,', 'calling', 'as', 'she', 'joins', 'the', 'other', 'children.', 'SUSAN', 'Wait', 'for', 'me...', 'As', 'the', 'CAMERA', 'CRANES', 'UP,', 'Marion', 'and', 'Charlotte', 'disappear', 'beneath', 'the', 'overhang', 'of', 'the', 'porch', 'roof.', 'Suddenly,', 'the', 'SOUND', 'OF', 'A', 'CRASH.', 'MARION', '(O.S.)', 'Damnation!', 'The', 'CAMERA', 'CONTINUES', 'TO', 'CRANE', 'UP', 'as', 'Marion', 'walks', 'off', 'the', 'porch,', 'crosses', 'the', 'yard', 'and', 'enters', 'his', 'workshop.', 'A', 'moment', 'later,', 'the', 'SOUND', 'OF', "MARION'S", 'LATHE', 'RISES.', 'FADE', 'OUT.', 'THE', 'END']
+1
+Question 49 in progress...
+this is length of string_tokenized: 12986
+this is chonk size: 40000
+this is the division: 0.32465
+This is the floor of div: 0
+Here are the last 100 words of each: ['giant', 'onion.', 'Fiona', 'tosses', 'her', 'bouquet', 'which', 'both', 'Cinderella', 'and', 'Snow', 'White', 'try', 'to', 'catch.', 'But', 'they', 'end', 'up', 'getting', 'into', 'a', 'cat', 'fight', 'and', 'so', 'the', 'dragon', 'catches', 'the', 'bouquet', 'instead.', 'The', 'Gingerbread', 'man', 'has', 'been', 'mended', 'somewhat', 'and', 'now', 'has', 'one', 'leg', 'and', 'walks', 'with', 'a', 'candy', 'cane', 'cane.', 'Shrek', 'and', 'Fiona', 'walk', 'off', 'as', 'the', 'rest', 'of', 'the', 'guests', 'party', 'and', 'Donkey', 'takes', 'over', 'singing', 'the', 'song.', 'GINGERBREAD', 'MAN', 'God', 'bless', 'us,', 'every', 'one.', 'DONKEY', '(as', "he's", 'done', 'singing', 'and', 'we', 'fade', 'to', 'black)', 'Oh,', "that's", 'funny.', 'Oh.', 'Oh.', 'I', "can't", 'breathe.', 'I', "can't", 'breathe.', 'THE', 'END']
+1
+Question 50 in progress...
+this is length of string_tokenized: 12986
+this is chonk size: 40000
+this is the division: 0.32465
+This is the floor of div: 0
+Here are the last 100 words of each: ['giant', 'onion.', 'Fiona', 'tosses', 'her', 'bouquet', 'which', 'both', 'Cinderella', 'and', 'Snow', 'White', 'try', 'to', 'catch.', 'But', 'they', 'end', 'up', 'getting', 'into', 'a', 'cat', 'fight', 'and', 'so', 'the', 'dragon', 'catches', 'the', 'bouquet', 'instead.', 'The', 'Gingerbread', 'man', 'has', 'been', 'mended', 'somewhat', 'and', 'now', 'has', 'one', 'leg', 'and', 'walks', 'with', 'a', 'candy', 'cane', 'cane.', 'Shrek', 'and', 'Fiona', 'walk', 'off', 'as', 'the', 'rest', 'of', 'the', 'guests', 'party', 'and', 'Donkey', 'takes', 'over', 'singing', 'the', 'song.', 'GINGERBREAD', 'MAN', 'God', 'bless', 'us,', 'every', 'one.', 'DONKEY', '(as', "he's", 'done', 'singing', 'and', 'we', 'fade', 'to', 'black)', 'Oh,', "that's", 'funny.', 'Oh.', 'Oh.', 'I', "can't", 'breathe.', 'I', "can't", 'breathe.', 'THE', 'END']
+1
+Question 51 in progress...
+this is length of string_tokenized: 30203
+this is chonk size: 40000
+this is the division: 0.755075
+This is the floor of div: 0
+Here are the last 100 words of each: ['some', 'up-tempo', 'boogie-woogie', 'as', 'we', 'move', 'up', 'and', 'away', '--', 'still', 'in', 'the', 'same', 'shot', '--', 'moving', 'over', 'the', 'town,', 'settling', 'down', 'again', 'to', 'grab', 'a', 'shot', 'of', 'the', "Bijou's", 'marquee.', 'The', 'neon', 'chaser', 'lights', 'POP', 'ON,', 'illuminating', 'the', 'sign,', 'which', 'reads:', '<b>', 'THE', 'END', '</b>', 'Then,', 'the', 'letters', 'on', 'the', 'marquee', 'START', 'SHAKING.', 'We', 'BOOM', 'UP', 'TO', 'THE', 'TOP', 'OF', 'THE', 'THEATER,', 'and', 'the', '"BIJOU"', 'sign...', '...', 'as', 'the', 'train', 'RUMBLES', 'BY', 'behind', 'the', 'theater...', '...', 'and', 'the', '"J"', 'teeters', 'loose', 'and', 'swings', 'by', 'a', 'thread...', '...', 'and', 'we', 'IRIS', 'DOWN', 'ON', 'IT', 'AND...', '<b>', 'CUT', 'TO', 'BLACK.', '</b>']
+1
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/tmalik6/cs412/LD/llm_zero_shot_muld.py", line 197, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/tmalik6/cs412/LD/llm_zero_shot_muld.py", line 181, in main
+[rank0]:     ans_full, predicts_full, predicts = predict(test_source, llm, 40000)
+[rank0]:   File "/home/tmalik6/cs412/LD/llm_zero_shot_muld.py", line 123, in predict
+[rank0]:     text = generate(sp, up, i, llm)
+[rank0]:   File "/home/tmalik6/cs412/LD/llm_zero_shot_muld.py", line 54, in generate
+[rank0]:     return output[0].outputs[0].text #returns only the raw answer text
+[rank0]: IndexError: list index out of range
+[rank0]:[W1130 18:11:00.757964601 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
