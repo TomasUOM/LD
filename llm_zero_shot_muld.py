@@ -2,9 +2,10 @@ from vllm import SamplingParams, LLM
 import datasets
 from  huggingface_hub import login
 import re
+from nltk.tokenize import word_tokenize
+from nltk.tokenize.treebank import TreebankWordDetokenizer
 from nltk import word_tokenize
 from math import floor
-from collections import defaultdict
 
 # keeping my read token private
 with open("token.txt", 'r') as f:
@@ -12,7 +13,7 @@ with open("token.txt", 'r') as f:
 
 # provides access to llama3.1 through my token
 login(hf_token)
-
+detokenizer = TreebankWordDetokenizer()
 
 # vllm llm function
 def choose_model(name):
@@ -34,6 +35,8 @@ def load_data(dataset_name):
 def prompt_model(j, character): #target_otps could be experimented with, but not right now
     # you are an expert in _____,  (essentially description of the AI's role: e.g.: "You are a helpful assistant")
     system_prompt = "You are a helpful assistant." 
+    # m = word_tokenize(j)
+    # print(f"prompt_model: test1: This is length of input (in tokens): {len(m)}")
     # what the model is actually being tasked with: different for each question in benchmark
     
     user_prompt = f"I will present you a section of a book and a character. I want you to contemplate whether the character is a Hero, or a Villain, based on the section.\n\n"
@@ -51,7 +54,12 @@ def generate(system_prompt, user_prompt, instructions, llm, nsampling = 1):
     params = SamplingParams(n = nsampling, top_k=-1,min_p=0.4,temperature = t, seed = 42, max_tokens = 500) # 500 is max num of tokens in its answer
     # seed is random seed
     # may later include logprobs if of interest
+    # m = word_tokenize(request)
+    # print(f"generate: test2: len of request: {len(m)}")
     output = llm.generate(request,params, use_tqdm = False) # trying use_tqdm true for the first time, dunno how it will work
+    # print(f"generate: test1: {output}")
+    if not output:
+        return "NA"
     return output[0].outputs[0].text #returns only the raw answer text
 
 def extractor(string):
@@ -78,10 +86,8 @@ def chonker(string, chonk_size):
     lag = 0                           # Tracks the start of the current chunk
     down = floor(l / chonk_size)
     print(f"this is length of string_tokenized: {len(string_tokenized)}")
-    print(f"this is chonk size: {chonk_size}")
     print(f"this is the division: {l / chonk_size}")
-    print(f"This is the floor of div: {down}")
-    print(f"Here are the last 100 words of each: {string_tokenized[-100:]}")
+    
     
     chonks = []                       # List to hold the resulting chunks
 
@@ -102,26 +108,58 @@ def chonker(string, chonk_size):
 
     return chonks, character
 
-def predict(inputs, llm, chonk_size):
+def chonker2(string, chonk_size):
+    # I dedicate this function to my orange chonky cat
+    character = string.split()[0]  # Split the string into words
+    string_tokenized = word_tokenize(string)
+    
+    l = len(string_tokenized)         # Total number of words
+    lag = 0                           # Tracks the start of the current chunk
+    down = floor(l / chonk_size)
+    print(f"this is length of string_tokenized: {len(string_tokenized)}")
+    print(f"this is the division: {l / chonk_size}")
+    print(f"This is the floor of div: {down}")
+
+    
+    chonks = []                       # List to hold the resulting chunks
+
+    # Create full chunks
+    for i in range(down):
+        a = lag * chonk_size
+        b = (lag + 1) * chonk_size
+        s = string_tokenized[a:b]
+        lag += 1
+        v = detokenizer.detokenize(s)
+        chonks.append(v)
+
+    # Handle the remainder (if any words are left after full chunks)
+    if lag * chonk_size < l:
+        s = string_tokenized[lag * chonk_size:]
+        v = detokenizer.detokenize(s)
+        chonks.append(v)
+
+    return chonks, character
+
+
+def predict(inputs, llm, chonk_size, targ_class):
     ans_full = [] # for debugging purposes
     predicts_full = []
     ext_failed = 0 # deal with later
     predicts = []
-    y = 1
     print(len(inputs))
-    for i in inputs:
+    for i in range(len(inputs)):
         hero = 0
         villain = 0
-        print(f"Question {y} in progress...")
-        y += 1
-        chonks, character = chonker(i, chonk_size)
-        print(len(chonks))
+        print(f"Question {i+1} in progress...")
+        chonks, character = chonker(inputs[i], chonk_size)
         otps = []
         target_otps = []
 
-        for j in chonks:
-            sp, up, i = prompt_model(j, character) #if empty bla bla, if not, ...
-            text = generate(sp, up, i, llm)
+        for k in range(len(chonks)):
+            j = chonks[k] #this changes just fine
+            # print(f"This is the crux right now: {chonks[k]}") #this is a real string output
+            sp, up, inst = prompt_model(j, character) #if empty bla bla, if not, ...
+            text = generate(sp, up, inst, llm) #this part is the problem
             otps.append(j)
             ans = extractor(text)
             target_otps.append(ans)
@@ -138,6 +176,8 @@ def predict(inputs, llm, chonk_size):
         else:
             predicts.append("villain")
         ans_full.append(otps)
+        print(f"prediction {predicts[-1]}")
+        print(f"target: {targ_class[i]}")
         predicts_full.append(target_otps)
             
     print(f"Extraction failed {ext_failed} times!")
@@ -169,23 +209,15 @@ def main():
     data_test = data['test']
     
     # chunk up 
-    test_source = data_val['input']
-    test_class = data_val['output']
-
-
-    
-
-    
-    
+    test_source = data_test['input']
+    test_class = data_test['output']
 
     llm=choose_model(model)
-    ans_full, predicts_full, predicts = predict(test_source, llm, 40000)
+    ans_full, predicts_full, predicts = predict(test_source, llm, 40000, test_class)
     for i in range(len(test_class)):
         print(test_class[i])
         print(predicts[i])
         print(predicts_full[i])
-        print("\n\n")
-        # print(ans_full[i])
         print("\n\n")
     
     print(precision(predicts, test_class))
