@@ -1,0 +1,975 @@
+2024-12-02 19:21:55.249681: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1733188915.269569 1461404 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1733188915.275836 1461404 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-02 19:21:55.297158: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+INFO 12-02 19:22:05 config.py:350] This model supports multiple tasks: {'generate', 'embedding'}. Defaulting to 'generate'.
+WARNING 12-02 19:22:05 arg_utils.py:1013] Chunked prefill is enabled by default for models with max_model_len > 32K. Currently, chunked prefill might not work with some features or models. If you encounter any issues, please disable chunked prefill by setting --enable-chunked-prefill=False.
+INFO 12-02 19:22:05 config.py:1136] Chunked prefill is enabled with max_num_batched_tokens=512.
+INFO 12-02 19:22:05 llm_engine.py:249] Initializing an LLM engine (v0.6.4.post1) with config: model='meta-llama/Llama-3.2-1B-Instruct', speculative_config=None, tokenizer='meta-llama/Llama-3.2-1B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=45000, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Llama-3.2-1B-Instruct, num_scheduler_steps=1, chunked_prefill_enabled=True multi_step_stream_outputs=True, enable_prefix_caching=False, use_async_output_proc=True, use_cached_outputs=False, chat_template_text_format=string, mm_processor_kwargs=None, pooler_config=None)
+INFO 12-02 19:22:06 selector.py:135] Using Flash Attention backend.
+INFO 12-02 19:22:06 model_runner.py:1072] Starting to load model meta-llama/Llama-3.2-1B-Instruct...
+INFO 12-02 19:22:07 weight_utils.py:243] Using model weights format ['*.safetensors']
+INFO 12-02 19:22:07 weight_utils.py:288] No model.safetensors.index.json found in remote.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.32it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.32it/s]
+
+INFO 12-02 19:22:08 model_runner.py:1077] Loading model weights took 2.3185 GB
+INFO 12-02 19:22:08 worker.py:232] Memory profiling results: total_gpu_memory=23.67GiB initial_memory_usage=2.57GiB peak_torch_memory=3.49GiB memory_usage_post_profile=2.59GiB non_torch_memory=0.26GiB kv_cache_size=18.74GiB gpu_memory_utilization=0.95
+INFO 12-02 19:22:08 gpu_executor.py:113] # GPU blocks: 38369, # CPU blocks: 8192
+INFO 12-02 19:22:08 gpu_executor.py:117] Maximum concurrency for 45000 tokens per request: 13.64x
+INFO 12-02 19:22:11 model_runner.py:1400] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 12-02 19:22:11 model_runner.py:1404] If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 12-02 19:22:27 model_runner.py:1518] Graph capturing finished in 16 secs, took 0.15 GiB
+86
+Question 1 in progress...
+this is length of string_tokenized: 22408
+this is the division: 2.2408
+prediction hero
+target: ['Hero']
+Question 2 in progress...
+this is length of string_tokenized: 27719
+this is the division: 2.7719
+prediction hero
+target: ['Villain/Antagonist']
+Question 3 in progress...
+this is length of string_tokenized: 27719
+this is the division: 2.7719
+prediction hero
+target: ['Hero']
+Question 4 in progress...
+this is length of string_tokenized: 27467
+this is the division: 2.7467
+prediction hero
+target: ['Hero']
+Question 5 in progress...
+this is length of string_tokenized: 27467
+this is the division: 2.7467
+prediction hero
+target: ['Villain/Antagonist']
+Question 6 in progress...
+this is length of string_tokenized: 27467
+this is the division: 2.7467
+prediction hero
+target: ['Hero']
+Question 7 in progress...
+this is length of string_tokenized: 27467
+this is the division: 2.7467
+prediction hero
+target: ['Hero']
+Question 8 in progress...
+this is length of string_tokenized: 27467
+this is the division: 2.7467
+prediction hero
+target: ['Villain/Antagonist']
+Question 9 in progress...
+this is length of string_tokenized: 20074
+this is the division: 2.0074
+prediction hero
+target: ['Villain/Antagonist']
+Question 10 in progress...
+this is length of string_tokenized: 20074
+this is the division: 2.0074
+prediction hero
+target: ['Villain/Antagonist']
+Question 11 in progress...
+this is length of string_tokenized: 20074
+this is the division: 2.0074
+prediction hero
+target: ['Hero']
+Question 12 in progress...
+this is length of string_tokenized: 28851
+this is the division: 2.8851
+prediction hero
+target: ['Villain/Antagonist']
+Question 13 in progress...
+this is length of string_tokenized: 28851
+this is the division: 2.8851
+prediction hero
+target: ['Hero']
+Question 14 in progress...
+this is length of string_tokenized: 28851
+this is the division: 2.8851
+prediction hero
+target: ['Villain/Antagonist']
+Question 15 in progress...
+this is length of string_tokenized: 31288
+this is the division: 3.1288
+prediction hero
+target: ['Hero']
+Question 16 in progress...
+this is length of string_tokenized: 25481
+this is the division: 2.5481
+prediction hero
+target: ['Hero']
+Question 17 in progress...
+this is length of string_tokenized: 25481
+this is the division: 2.5481
+prediction hero
+target: ['Villain/Antagonist']
+Question 18 in progress...
+this is length of string_tokenized: 22677
+this is the division: 2.2677
+prediction hero
+target: ['Villain/Antagonist']
+Question 19 in progress...
+this is length of string_tokenized: 22677
+this is the division: 2.2677
+prediction hero
+target: ['Hero']
+Question 20 in progress...
+this is length of string_tokenized: 30744
+this is the division: 3.0744
+prediction hero
+target: ['Hero']
+Question 21 in progress...
+this is length of string_tokenized: 30744
+this is the division: 3.0744
+prediction hero
+target: ['Hero']
+Question 22 in progress...
+this is length of string_tokenized: 34346
+this is the division: 3.4346
+prediction hero
+target: ['Hero']
+Question 23 in progress...
+this is length of string_tokenized: 34346
+this is the division: 3.4346
+prediction hero
+target: ['Villain/Antagonist']
+Question 24 in progress...
+this is length of string_tokenized: 34099
+this is the division: 3.4099
+prediction hero
+target: ['Villain/Antagonist']
+Question 25 in progress...
+this is length of string_tokenized: 34099
+this is the division: 3.4099
+prediction hero
+target: ['Villain/Antagonist']
+Question 26 in progress...
+this is length of string_tokenized: 34099
+this is the division: 3.4099
+prediction hero
+target: ['Hero']
+Question 27 in progress...
+this is length of string_tokenized: 28491
+this is the division: 2.8491
+prediction hero
+target: ['Hero']
+Question 28 in progress...
+this is length of string_tokenized: 24844
+this is the division: 2.4844
+prediction hero
+target: ['Hero']
+Question 29 in progress...
+this is length of string_tokenized: 24844
+this is the division: 2.4844
+prediction hero
+target: ['Hero']
+Question 30 in progress...
+this is length of string_tokenized: 28962
+this is the division: 2.8962
+prediction hero
+target: ['Hero']
+Question 31 in progress...
+this is length of string_tokenized: 27087
+this is the division: 2.7087
+prediction hero
+target: ['Hero']
+Question 32 in progress...
+this is length of string_tokenized: 27087
+this is the division: 2.7087
+prediction hero
+target: ['Villain/Antagonist']
+Question 33 in progress...
+this is length of string_tokenized: 28433
+this is the division: 2.8433
+prediction hero
+target: ['Villain/Antagonist']
+Question 34 in progress...
+this is length of string_tokenized: 21268
+this is the division: 2.1268
+prediction hero
+target: ['Hero']
+Question 35 in progress...
+this is length of string_tokenized: 27410
+this is the division: 2.741
+prediction hero
+target: ['Hero']
+Question 36 in progress...
+this is length of string_tokenized: 27410
+this is the division: 2.741
+prediction hero
+target: ['Villain/Antagonist']
+Question 37 in progress...
+this is length of string_tokenized: 24025
+this is the division: 2.4025
+prediction hero
+target: ['Hero']
+Question 38 in progress...
+this is length of string_tokenized: 24025
+this is the division: 2.4025
+prediction hero
+target: ['Villain/Antagonist']
+Question 39 in progress...
+this is length of string_tokenized: 23873
+this is the division: 2.3873
+prediction hero
+target: ['Villain/Antagonist']
+Question 40 in progress...
+this is length of string_tokenized: 23873
+this is the division: 2.3873
+prediction hero
+target: ['Hero']
+Question 41 in progress...
+this is length of string_tokenized: 23873
+this is the division: 2.3873
+prediction hero
+target: ['Villain/Antagonist']
+Question 42 in progress...
+this is length of string_tokenized: 24215
+this is the division: 2.4215
+prediction hero
+target: ['Hero']
+Question 43 in progress...
+this is length of string_tokenized: 36421
+this is the division: 3.6421
+prediction hero
+target: ['Hero']
+Question 44 in progress...
+this is length of string_tokenized: 23282
+this is the division: 2.3282
+prediction hero
+target: ['Hero']
+Question 45 in progress...
+this is length of string_tokenized: 23253
+this is the division: 2.3253
+prediction hero
+target: ['Hero']
+Question 46 in progress...
+this is length of string_tokenized: 23253
+this is the division: 2.3253
+prediction hero
+target: ['Villain/Antagonist']
+Question 47 in progress...
+this is length of string_tokenized: 28388
+this is the division: 2.8388
+prediction hero
+target: ['Hero']
+Question 48 in progress...
+this is length of string_tokenized: 28388
+this is the division: 2.8388
+prediction hero
+target: ['Villain/Antagonist']
+Question 49 in progress...
+this is length of string_tokenized: 28276
+this is the division: 2.8276
+prediction hero
+target: ['Villain/Antagonist']
+Question 50 in progress...
+this is length of string_tokenized: 28276
+this is the division: 2.8276
+prediction hero
+target: ['Hero']
+Question 51 in progress...
+this is length of string_tokenized: 28690
+this is the division: 2.869
+prediction hero
+target: ['Hero']
+Question 52 in progress...
+this is length of string_tokenized: 27716
+this is the division: 2.7716
+prediction hero
+target: ['Hero']
+Question 53 in progress...
+this is length of string_tokenized: 26891
+this is the division: 2.6891
+prediction hero
+target: ['Villain/Antagonist']
+Question 54 in progress...
+this is length of string_tokenized: 26891
+this is the division: 2.6891
+prediction hero
+target: ['Hero']
+Question 55 in progress...
+this is length of string_tokenized: 22918
+this is the division: 2.2918
+prediction hero
+target: ['Hero']
+Question 56 in progress...
+this is length of string_tokenized: 22918
+this is the division: 2.2918
+prediction hero
+target: ['Villain/Antagonist']
+Question 57 in progress...
+this is length of string_tokenized: 26300
+this is the division: 2.63
+prediction hero
+target: ['Hero']
+Question 58 in progress...
+this is length of string_tokenized: 28058
+this is the division: 2.8058
+prediction hero
+target: ['Hero']
+Question 59 in progress...
+this is length of string_tokenized: 28058
+this is the division: 2.8058
+prediction hero
+target: ['Villain/Antagonist']
+Question 60 in progress...
+this is length of string_tokenized: 45910
+this is the division: 4.591
+prediction hero
+target: ['Hero']
+Question 61 in progress...
+this is length of string_tokenized: 45910
+this is the division: 4.591
+prediction hero
+target: ['Villain/Antagonist']
+Question 62 in progress...
+this is length of string_tokenized: 23137
+this is the division: 2.3137
+prediction hero
+target: ['Villain/Antagonist']
+Question 63 in progress...
+this is length of string_tokenized: 23137
+this is the division: 2.3137
+prediction hero
+target: ['Villain/Antagonist']
+Question 64 in progress...
+this is length of string_tokenized: 23137
+this is the division: 2.3137
+prediction hero
+target: ['Hero']
+Question 65 in progress...
+this is length of string_tokenized: 23137
+this is the division: 2.3137
+prediction hero
+target: ['Villain/Antagonist']
+Question 66 in progress...
+this is length of string_tokenized: 26316
+this is the division: 2.6316
+prediction hero
+target: ['Hero']
+Question 67 in progress...
+this is length of string_tokenized: 26232
+this is the division: 2.6232
+prediction hero
+target: ['Hero']
+Question 68 in progress...
+this is length of string_tokenized: 12364
+this is the division: 1.2364
+prediction hero
+target: ['Hero']
+Question 69 in progress...
+this is length of string_tokenized: 36218
+this is the division: 3.6218
+prediction hero
+target: ['Hero']
+Question 70 in progress...
+this is length of string_tokenized: 36218
+this is the division: 3.6218
+prediction hero
+target: ['Villain/Antagonist']
+Question 71 in progress...
+this is length of string_tokenized: 23646
+this is the division: 2.3646
+prediction hero
+target: ['Villain/Antagonist']
+Question 72 in progress...
+this is length of string_tokenized: 23646
+this is the division: 2.3646
+prediction hero
+target: ['Villain/Antagonist']
+Question 73 in progress...
+this is length of string_tokenized: 23646
+this is the division: 2.3646
+prediction hero
+target: ['Hero']
+Question 74 in progress...
+this is length of string_tokenized: 29720
+this is the division: 2.972
+prediction hero
+target: ['Villain/Antagonist']
+Question 75 in progress...
+this is length of string_tokenized: 29720
+this is the division: 2.972
+prediction hero
+target: ['Hero']
+Question 76 in progress...
+this is length of string_tokenized: 19461
+this is the division: 1.9461
+prediction hero
+target: ['Hero']
+Question 77 in progress...
+this is length of string_tokenized: 19461
+this is the division: 1.9461
+prediction hero
+target: ['Villain/Antagonist']
+Question 78 in progress...
+this is length of string_tokenized: 18459
+this is the division: 1.8459
+prediction hero
+target: ['Hero']
+Question 79 in progress...
+this is length of string_tokenized: 17383
+this is the division: 1.7383
+prediction hero
+target: ['Hero']
+Question 80 in progress...
+this is length of string_tokenized: 17383
+this is the division: 1.7383
+prediction hero
+target: ['Villain/Antagonist']
+Question 81 in progress...
+this is length of string_tokenized: 26118
+this is the division: 2.6118
+prediction hero
+target: ['Hero']
+Question 82 in progress...
+this is length of string_tokenized: 23194
+this is the division: 2.3194
+prediction hero
+target: ['Villain/Antagonist']
+Question 83 in progress...
+this is length of string_tokenized: 23194
+this is the division: 2.3194
+prediction hero
+target: ['Hero']
+Question 84 in progress...
+this is length of string_tokenized: 21511
+this is the division: 2.1511
+prediction hero
+target: ['Hero']
+Question 85 in progress...
+this is length of string_tokenized: 21511
+this is the division: 2.1511
+prediction hero
+target: ['Villain/Antagonist']
+Question 86 in progress...
+this is length of string_tokenized: 23845
+this is the division: 2.3845
+prediction hero
+target: ['Hero']
+Extraction failed 0 times!
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Villain/Antagonist']
+hero
+['hero', 'hero', 'hero']
+
+
+
+['Hero']
+hero
+['hero', 'hero', 'hero']
+
+
+
+0.5813953488372093
+[rank0]:[W1202 19:25:18.772961182 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())

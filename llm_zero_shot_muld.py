@@ -51,12 +51,13 @@ def generate(system_prompt, user_prompt, instructions, llm, nsampling = 1):
     #source where it will look for an answer, the prompts, nsampling is for self consistency (statistical decoding technique)
     request = f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n{system_prompt}<|eot_id|><|start_header_id|>user<|end_header_id|>\n{user_prompt}\
         \n\n**Instructions:** \n{instructions} <|eot_id|><|start_header_id|>assistant<|end_header_id|>\n["
-    params = SamplingParams(n = nsampling, top_k=-1,min_p=0.4,temperature = t, seed = 42, max_tokens = 500) # 500 is max num of tokens in its answer
+    # params = SamplingParams(n = nsampling, top_k=-1,min_p=0.4,temperature = t, seed = 42, max_tokens = 500) # 500 is max num of tokens in its answer
+    params = SamplingParams(n = nsampling,temperature = t, seed = 42, max_tokens = 500) # 500 is max num of tokens in its answer
     # seed is random seed
     # may later include logprobs if of interest
     # m = word_tokenize(request)
     # print(f"generate: test2: len of request: {len(m)}")
-    output = llm.generate(request,params, use_tqdm = False) # trying use_tqdm true for the first time, dunno how it will work
+    output = llm.generate(request,params, use_tqdm = False) 
     # print(f"generate: test1: {output}")
     if not output:
         return "NA"
@@ -197,11 +198,11 @@ def precision(predict_class, target_class):
 
 
 def main():
-    # model = "meta-llama/Llama-3.2-1B-Instruct"
+    model = "meta-llama/Llama-3.2-1B-Instruct"
     # model = "meta-llama/Llama-3.2-3B-Instruct"
-    model = "meta-llama/Llama-3.1-8B-Instruct"
+    # model = "meta-llama/Llama-3.1-8B-Instruct"
 
-    dataset = "ghomasHudson/muld"
+    dataset = "ghomasHudson/muld" # selects the full MULD 
     data = load_data(dataset)
 
     data_train = data['train']
@@ -213,7 +214,7 @@ def main():
     test_class = data_test['output']
 
     llm=choose_model(model)
-    ans_full, predicts_full, predicts = predict(test_source, llm, 40000, test_class)
+    ans_full, predicts_full, predicts = predict(test_source, llm, 10000, test_class)
     for i in range(len(test_class)):
         print(test_class[i])
         print(predicts[i])
