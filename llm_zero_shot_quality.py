@@ -1,28 +1,16 @@
 from vllm import SamplingParams, LLM
 import datasets
 from  huggingface_hub import login
-# import nltk
 import re
-import random
-from collections import defaultdict
 
 # keeping my read token private
 with open("token.txt", 'r') as f:
     hf_token = f.read() # request your own token, input here
 
 # provides access to llama3.1 through my token
-login(hf_token)
+login(hf_token) # you might need to generate your own in order to use this, ask me if u need help obtaining
 
-# 
-#nltk.download('punkt',quiet=True)
-#nltk.download('stopwords',quiet=True)
-#nltk.download('wordnet',quiet=True)
 
-# NLTK tools to help tokenize text
-# stop_words = set(nltk.stopwords.words('english'))
-# stemmer = nltk.stem.PorterStemmer()
-# tokenizer = nltk.tokenize.word_tokenize()
-# lemmatizer = nltk.WordNetLemmatizer()
 
 # vllm llm function
 def choose_model(name):

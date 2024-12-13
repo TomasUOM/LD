@@ -109,6 +109,9 @@ def chonker(string, chonk_size):
 
     return chonks, character
 
+# An alternative that works with tokenizer instead of the s.split()
+# might represent a more accurate number of tokens, but llama's tokenizer still might be different
+# it might also struggle to accurately reconstruct the exact same string
 def chonker2(string, chonk_size):
     # I dedicate this function to my orange chonky cat
     character = string.split()[0]  # Split the string into words
@@ -223,8 +226,6 @@ def main():
     
     print(precision(predicts, test_class))
 
-
-    # precision(num_ans, target) #needs reworking
 
     return 0
 
